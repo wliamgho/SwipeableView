@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class ParentViewController: UIViewController {
     @IBOutlet weak var menuBar: MenuBar!
     fileprivate(set) var viewPager = UIPageViewController(transitionStyle: .scroll,
@@ -16,7 +15,7 @@ class ParentViewController: UIViewController {
                                                           options: nil)
 
     fileprivate var tabIndex: TabIndex
-    
+
     var page = ["Alpha", "Beta"]
     var currentTab = 0
 
@@ -33,13 +32,17 @@ class ParentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let indexPath = IndexPath(item: 0, section: 0)
-        
-        // Set tab item
-        menuBar.data = page
-        
-        menuBar.collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredVertically)
+        menuBar.layer.borderWidth = 1
+        menuBar.layer.borderColor = UIColor.lightGray.cgColor
 
+        // Set menu item
+        for item in page {
+            menuBar.buttonTitle = item
+        }
+
+        menuBar.delegate = self
+
+        // Set pager frame
         var framePager = view.frame
         framePager.origin.y = menuBar.frame.maxY
         framePager.size.height = self.view.frame.height - menuBar.frame.maxY
@@ -64,10 +67,11 @@ class ParentViewController: UIViewController {
     private func viewController(atIndex index: Int) -> UIViewController? {
         if currentTab == 0 {
             let alphaVC = AlphaViewController()
-            
+
             return alphaVC
         } else {
             let betaVC = BetaViewController()
+
             return betaVC
         }
     }
@@ -77,11 +81,12 @@ extension ParentViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         let beforeIndex = currentTab - 1
 
-        if beforeIndex >= 0 {
+        if beforeIndex < 0 {
             return nil
         }
 
         currentTab = beforeIndex
+        menuBar.indicatorActive = currentTab
         debugPrint("beforeIndex: \(beforeIndex)")
 
         return self.viewController(atIndex: currentTab)
@@ -95,6 +100,7 @@ extension ParentViewController: UIPageViewControllerDataSource {
         }
 
         currentTab = nextIndex
+        menuBar.indicatorActive = currentTab
 
         debugPrint("nextIndex: \(nextIndex)")
 
@@ -104,6 +110,27 @@ extension ParentViewController: UIPageViewControllerDataSource {
 
 extension ParentViewController: UIPageViewControllerDelegate {
     func pageViewController(_ pageViewController: UIPageViewController,
-                            willTransitionTo pendingViewControllers: [UIViewController]) {
+                            didFinishAnimating finished: Bool,
+                            previousViewControllers: [UIViewController],
+                            transitionCompleted completed: Bool) {
+        if completed {
+            menuBar.indicatorActive = currentTab
+        }
+    }
+}
+
+extension ParentViewController: MenuBarDelegate {
+    func menuItemDidTouch(withIndex index: Int) {
+        if index != currentTab {
+            if index > currentTab {
+                self.currentTab = index
+                self.viewPager.setViewControllers([self.viewController(atIndex: self.currentTab)!], direction: .forward, animated: true, completion: nil)
+            } else {
+                self.currentTab = index
+                self.viewPager.setViewControllers([self.viewController(atIndex: self.currentTab)!], direction: .reverse, animated: true, completion: nil)
+            }
+        } else {
+            self.currentTab = index
+        }
     }
 }

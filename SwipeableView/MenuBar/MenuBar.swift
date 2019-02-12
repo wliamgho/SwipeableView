@@ -9,20 +9,31 @@
 import UIKit
 
 protocol MenuBarDelegate {
-    func menuBarDidSelectItemAt(menu: MenuBar, index: Int)
+    func menuItemDidTouch(withIndex index: Int)
 }
 
 class MenuBar: UIView {
-    @IBOutlet var contentView: UIView!
-    @IBOutlet weak var collectionView: UICollectionView!
-
-    var delegate: MenuBarDelegate?
-
-    var data: [String?] = [] {
+    var buttonTitle =  "" {
         didSet {
-            self.collectionView.reloadData()
+            didSetButtonTitle()
         }
     }
+
+    var indicatorActive = 0 {
+        didSet {
+            didSetIndicatorActive()
+        }
+    }
+
+    @IBOutlet var contentView: UIView!
+
+    @IBOutlet weak var alphaButton: UIButton!
+    @IBOutlet weak var alphaIndicator: UIView!
+
+    @IBOutlet weak var betaButton: UIButton!
+    @IBOutlet weak var betaIndicator: UIView!
+
+    var delegate: MenuBarDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -45,57 +56,28 @@ class MenuBar: UIView {
         content.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 
         addSubview(content)
-
-        configureTab()
     }
 
-    private func configureTab() {
-        collectionView.register(UINib(nibName: ItemCell.reuseIdentifier(), bundle: nil),
-                                forCellWithReuseIdentifier: ItemCell.reuseIdentifier())
+    private func didSetButtonTitle() {
+        alphaButton.titleLabel?.text = buttonTitle
+        betaButton.titleLabel?.text = buttonTitle
     }
-}
 
-extension MenuBar: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemCell.reuseIdentifier() , for: indexPath) as? ItemCell
-
-        cell?.title = data[indexPath.item]!
-
-        return cell!
-    }
-}
-
-extension MenuBar: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if data.count == 0 {
-            return 0
+    private func didSetIndicatorActive() {
+        if indicatorActive == 0 {
+            alphaIndicator.alpha = 1
+            betaIndicator.alpha = 0.4
+        } else {
+            alphaIndicator.alpha = 0.4
+            betaIndicator.alpha = 1
         }
-
-        return data.count
     }
 
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let index = Int(indexPath.item)
-        debugPrint("selected menu item: \(index)")
-        delegate?.menuBarDidSelectItemAt(menu: self, index: index)
-        
+    @IBAction func alphaDidTouch(_ sender: UIButton) {
+        delegate?.menuItemDidTouch(withIndex: sender.tag)
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-}
-
-extension MenuBar: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return ItemCell.getSize()
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
+    @IBAction func betaDidTouch(_ sender: UIButton) {
+        delegate?.menuItemDidTouch(withIndex: sender.tag)
     }
 }

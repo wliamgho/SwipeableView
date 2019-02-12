@@ -21,8 +21,6 @@
 		3D07EE3C220F229A0058D942 /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D07EE3A220F229A0058D942 /* ItemCell.xib */; };
 		3D07EE41220F30650058D942 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D07EE3F220F30650058D942 /* SecondViewController.swift */; };
 		3D07EE42220F30650058D942 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D07EE40220F30650058D942 /* SecondViewController.xib */; };
-		3DF1932C221288C9002CEEF8 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF1932A221288C9002CEEF8 /* PageViewController.swift */; };
-		3DF1932D221288C9002CEEF8 /* PageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF1932B221288C9002CEEF8 /* PageViewController.xib */; };
 		3DF1933122129DB5002CEEF8 /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF1932F22129DB5002CEEF8 /* ParentViewController.swift */; };
 		3DF1933222129DB5002CEEF8 /* ParentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF1933022129DB5002CEEF8 /* ParentViewController.xib */; };
 		3DF193352212A19C002CEEF8 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF193342212A19C002CEEF8 /* TabBarController.swift */; };
@@ -70,8 +68,6 @@
 		3D07EE3A220F229A0058D942 /* ItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemCell.xib; sourceTree = "<group>"; };
 		3D07EE3F220F30650058D942 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		3D07EE40220F30650058D942 /* SecondViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecondViewController.xib; sourceTree = "<group>"; };
-		3DF1932A221288C9002CEEF8 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
-		3DF1932B221288C9002CEEF8 /* PageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PageViewController.xib; sourceTree = "<group>"; };
 		3DF1932F22129DB5002CEEF8 /* ParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentViewController.swift; sourceTree = "<group>"; };
 		3DF1933022129DB5002CEEF8 /* ParentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ParentViewController.xib; sourceTree = "<group>"; };
 		3DF193342212A19C002CEEF8 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -142,8 +138,6 @@
 				3D07EDFB220F14280058D942 /* Assets.xcassets */,
 				3D07EDFD220F14280058D942 /* LaunchScreen.storyboard */,
 				3D07EE00220F14280058D942 /* Info.plist */,
-				3DF1932A221288C9002CEEF8 /* PageViewController.swift */,
-				3DF1932B221288C9002CEEF8 /* PageViewController.xib */,
 			);
 			path = SwipeableView;
 			sourceTree = "<group>";
@@ -354,7 +348,6 @@
 				3DF193452212B467002CEEF8 /* AlphaViewController.xib in Resources */,
 				3D07EE2A220F159F0058D942 /* FirstViewController.xib in Resources */,
 				3DF1933222129DB5002CEEF8 /* ParentViewController.xib in Resources */,
-				3DF1932D221288C9002CEEF8 /* PageViewController.xib in Resources */,
 				3D07EE42220F30650058D942 /* SecondViewController.xib in Resources */,
 				3D07EE3C220F229A0058D942 /* ItemCell.xib in Resources */,
 				3D07EE35220F189E0058D942 /* MenuBar.xib in Resources */,
@@ -385,7 +378,6 @@
 			files = (
 				3D07EE41220F30650058D942 /* SecondViewController.swift in Sources */,
 				3DF193442212B467002CEEF8 /* AlphaViewController.swift in Sources */,
-				3DF1932C221288C9002CEEF8 /* PageViewController.swift in Sources */,
 				3D07EE29220F159F0058D942 /* FirstViewController.swift in Sources */,
 				3DF193352212A19C002CEEF8 /* TabBarController.swift in Sources */,
 				3D07EDF5220F14260058D942 /* AppDelegate.swift in Sources */,
