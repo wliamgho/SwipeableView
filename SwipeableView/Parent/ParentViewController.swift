@@ -81,12 +81,13 @@ extension ParentViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         let beforeIndex = currentTab - 1
 
-        if beforeIndex < 0 {
+        if beforeIndex >= 0 {
+            // TODOs: - For while, i put this to make sure indicator is changed
+            menuBar.indicatorActive = beforeIndex
             return nil
         }
 
         currentTab = beforeIndex
-        menuBar.indicatorActive = currentTab
         debugPrint("beforeIndex: \(beforeIndex)")
 
         return self.viewController(atIndex: currentTab)
@@ -124,9 +125,11 @@ extension ParentViewController: MenuBarDelegate {
         if index != currentTab {
             if index > currentTab {
                 self.currentTab = index
+                menuBar.indicatorActive = self.currentTab
                 self.viewPager.setViewControllers([self.viewController(atIndex: self.currentTab)!], direction: .forward, animated: true, completion: nil)
             } else {
                 self.currentTab = index
+                menuBar.indicatorActive = self.currentTab
                 self.viewPager.setViewControllers([self.viewController(atIndex: self.currentTab)!], direction: .reverse, animated: true, completion: nil)
             }
         } else {
