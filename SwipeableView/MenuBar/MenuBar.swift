@@ -8,11 +8,17 @@
 
 import UIKit
 
+protocol MenuBarDelegate {
+    func menuBarDidSelectItemAt(menu: MenuBar, index: Int)
+}
+
 class MenuBar: UIView {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
 
-    var data: [String] = [] {
+    var delegate: MenuBarDelegate?
+
+    var data: [String?] = [] {
         didSet {
             self.collectionView.reloadData()
         }
@@ -53,7 +59,7 @@ extension MenuBar: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemCell.reuseIdentifier() , for: indexPath) as? ItemCell
 
-        cell?.title = data[indexPath.item]
+        cell?.title = data[indexPath.item]!
 
         return cell!
     }
@@ -61,7 +67,18 @@ extension MenuBar: UICollectionViewDelegate {
 
 extension MenuBar: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if data.count == 0 {
+            return 0
+        }
+
         return data.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let index = Int(indexPath.item)
+        debugPrint("selected menu item: \(index)")
+        delegate?.menuBarDidSelectItemAt(menu: self, index: index)
+        
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

@@ -30,7 +30,7 @@ class ItemCell: UICollectionViewCell {
         super.awakeFromNib()
 
         // Top corner radius
-        let radiusSize = CGSize(width: 2, height: 0)
+        let radiusSize = CGSize(width: 2, height: 2)
         let path = UIBezierPath(roundedRect: indicatorView.bounds,
                                 byRoundingCorners: [.topRight, .topLeft], cornerRadii: radiusSize)
 
