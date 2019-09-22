@@ -9,10 +9,17 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    var listData: [[String: Any]] = [[String: Any]]()
+    @IBOutlet weak var headerView: UIView!
 
-    @IBOutlet weak var cardView: CardView!
+    var pageViewController = UIPageViewController(transitionStyle: .scroll,
+                                                  navigationOrientation: .horizontal,
+                                                  options: nil)
+    var listData: [String] = [String]()
+    var currentStreamVC = UIViewController()
+    var currentPage = 0
+    var nextPage = 0
 
+    // MARK: - Initializer
     init() {
         super.init(nibName: "HomeViewController", bundle: nil)
     }
@@ -21,43 +28,85 @@ class HomeViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - Life Cycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        configurePageView()
+
         getStatus()
-        getList()
+
+        pageViewController.didMove(toParent: self)
+        pageViewController.delegate = self
+        pageViewController.dataSource = self
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        debugPrint("list data", self.listData)
+        for (index, status) in listData.enumerated() {
+            currentStreamVC = setViewControllers(withStatus: status, index: index)
+        }
+
+        pageViewController.setViewControllers([currentStreamVC],
+                                              direction: .forward,
+                                              animated: true,
+                                              completion: nil)
     }
 
-    func getStatus() {
-      // Load json file
-      if let path = Bundle.main.path(forResource: "Status", ofType: "json") {
-          do {
-              let data = try Data(contentsOf: URL(fileURLWithPath: path),
-                                  options: .mappedIfSafe)
-              let jsonResult = try JSONSerialization.jsonObject(with: data, options: [])
+    private func configurePageView() {
+        var viewPagerFrame = view.frame
+        viewPagerFrame.origin.y = headerView.frame.height - 50
+        viewPagerFrame.size.height = self.view.frame.height
 
-              if let result = jsonResult as? [[String: Any]] {
-                  self.listData = result
-              }
-          } catch {
-              debugPrint("ERROR to read json file", error.localizedDescription)
-          }
-      }
+        addChild(pageViewController)
+
+        pageViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        pageViewController.view.frame = viewPagerFrame
+
+        view.addSubview(pageViewController.view)
     }
 
-    func getList() {
+    private func setViewControllers(withStatus status: String, index: Int) -> UIViewController {
+        debugPrint("status", status)
+        switch status {
+        case "on_processed", "payment_status", "delivered":
+            let status = StatusViewController(status: status, currentPage: index)
+            return status
+        case "completed":
+            let list = ListViewController(status: status, currentPage: index)
+            return list
+        case "created", "waiting_for_payment":
+            let state = StateViewController(status: status, currentPage: index)
+            return state
+        default:
+            return UIViewController()
+        }
+    }
+
+    // Load status json file
+    private func getStatus() {
+        if let path = Bundle.main.path(forResource: "Status", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                let statusOrder = try JSONDecoder().decode([StatusModel].self, from: data)
+
+                for order in statusOrder {
+                    listData.append(order.status)
+                }
+            } catch {
+                debugPrint("ERROR to read json file", error.localizedDescription)
+            }
+        }
+    }
+
+    private func getList() {
       // Load json file
       if let path = Bundle.main.path(forResource: "List", ofType: "json") {
         do {
@@ -68,5 +117,39 @@ class HomeViewController: UIViewController {
               debugPrint("ERROR to read json file", error.localizedDescription)
           }
       }
+    }
+}
+
+extension HomeViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        let previousIndex = currentPage - 1
+
+        if previousIndex < 0 {
+            return nil
+        }
+
+        currentPage = previousIndex
+        debugPrint("BEFORE", previousIndex)
+
+        return setViewControllers(withStatus: listData[previousIndex], index: previousIndex)
+    }
+
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        let nextIndex = currentPage + 1
+        if nextIndex >= listData.count {
+            return nil
+        }
+        currentPage = nextIndex
+
+        debugPrint("nextIndex", nextIndex)
+        return setViewControllers(withStatus: listData[nextIndex], index: nextIndex)
+    }
+
+    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
+//        if let pendingVC = pendingViewControllers.first as? PagedStreamView {
+//            nextPage = pendingVC.currentPage
+//        }
+
+        debugPrint("Will transition \(currentPage) NEXT \(nextPage)")
     }
 }

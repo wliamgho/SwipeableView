@@ -1,14 +1,14 @@
 //
-//  StatusViewController.swift
+//  StateViewController.swift
 //  SwipeableView
 //
-//  Created by William on 21/09/19.
+//  Created by William on 22/09/19.
 //  Copyright © 2019 William. All rights reserved.
 //
 
 import UIKit
 
-class StatusViewController: UIViewController {
+class StateViewController: UIViewController {
     @IBOutlet weak var cardView: CardView!
 
     var status = ""
@@ -18,7 +18,7 @@ class StatusViewController: UIViewController {
         self.status = status
         self.currentPage = currentPage
 
-        super.init(nibName: "StatusViewController", bundle: nil)
+        super.init(nibName: "StateViewController", bundle: nil)
     }
 
     required init?(coder: NSCoder) {
@@ -27,7 +27,22 @@ class StatusViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
 
         cardView.statusLabel.text = status
+        cardView.layer.borderWidth = 0
+    }
+}
+
+extension StateViewController: PagedStreamView {
+    func getCurrentPage() -> Int {
+        return currentPage
+    }
+
+    func setPage(_ page: Int) {
+        currentPage = page
     }
 }
