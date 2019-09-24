@@ -8,14 +8,15 @@
 
 import UIKit
 
-class StateViewController: UIViewController {
+class StateViewController: UIViewController, PagedStreamView {
     @IBOutlet weak var cardView: CardView!
 
     var status = ""
-    var currentPage = 0
+    var currentPage: Int = 0
 
-    init(status: String) {
+    init(status: String, currentPage: Int = 0) {
         self.status = status
+        self.currentPage = currentPage
 
         super.init(nibName: "StateViewController", bundle: nil)
     }

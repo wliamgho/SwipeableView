@@ -20,8 +20,12 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var headerView: UIView!
 
     var currentStreamVC = [UIViewController]()
-    private var pageViewController: PageViewController!
+    var pageViewController = UIPageViewController(transitionStyle: .scroll,
+                                                  navigationOrientation: .horizontal,
+                                                  options: nil)
+
     var listData: [String] = [String]()
+    var currentIndex = 0
 
     // MARK: - Initializer
     init() {
@@ -45,13 +49,17 @@ class HomeViewController: UIViewController {
         configurePageView()
 
         getStatus()
+
+        pageViewController.didMove(toParent: self)
+        pageViewController.delegate = self
+        pageViewController.dataSource = self
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        for status in listData {
-            pageViewController = PageViewController(status: status)
+        if let startingVC = setViewControllers(index: 0) as? UIViewController {
+            pageViewController.setViewControllers([startingVC], direction: .forward, animated: true, completion: nil)
         }
     }
 
@@ -68,18 +76,36 @@ class HomeViewController: UIViewController {
         view.addSubview(pageViewController.view)
     }
 
-    private func setViewControllers(withStatus status: String) -> UIViewController {
+//    private func setViewControllers(withStatus status: String) -> UIViewController {
+//        if status == "on_processed" || status == "payment_status" || status == "delivered" {
+//            let status = StatusViewController(status: status)
+//            return status
+//        } else if status == "completed" {
+//            let list = ListViewController(status: status)
+//            return list
+//        } else {
+//            let state = StateViewController(status: status)
+//            return state
+//        }
+//     }
+    private func setViewControllers(index: Int) -> PagedStreamView? {
+        if self.listData.count == 0 || index >= self.listData.count { return nil }
+
+        let status = listData[index]
+        let controller: PagedStreamView
+
         if status == "on_processed" || status == "payment_status" || status == "delivered" {
-            let status = StatusViewController(status: status)
-            return status
+            controller = StatusViewController(status: status, currentPage: index)
         } else if status == "completed" {
-            let list = ListViewController(status: status)
-            return list
+            controller = ListViewController(status: status, currentPage: index)
         } else {
-            let state = StateViewController(status: status)
-            return state
+            controller = StateViewController(status: status, currentPage: index)
         }
-     }
+
+        currentIndex = index
+
+        return controller
+    }
 
     // Load status json file
     private func getStatus() {
@@ -115,32 +141,34 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        let previousIndex = currentPage - 1
-        let index = self.currentStreamVC.index(of: viewController)
+        var index = (viewController as! PagedStreamView).currentPage
 
-        if index == 0 {
+        if index == 0 || index == NSNotFound {
             return nil
         }
 
-        currentPage = previousIndex
+        index -= 1
 
-        return setViewControllers(withStatus: listData[previousIndex])
+        return setViewControllers(index: index) as! UIViewController
     }
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        let index = self.currentStreamVC.index(of: viewController)
-        let nextIndex = currentPage + 1
+        var index = (viewController as! PagedStreamView).currentPage
 
-        if index == currentStreamVC.count - 1 {
-            return nil
-        }
+        if index == NSNotFound { return nil }
 
-        currentPage = currentPage + 1
-        return setViewControllers(withStatus: listData[nextIndex])
+        index += 1
+
+        if index == self.listData.count { return nil }
+
+        return setViewControllers(index: index) as! UIViewController
     }
 
-    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        let currentView = pageViewController.viewControllers?.first as! UIViewController
-        debugPrint("current view", currentView)
+    func presentationCount(for pageViewController: UIPageViewController) -> Int {
+        return self.listData.count
+    }
+
+    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+        return 0
     }
 }

@@ -68,6 +68,10 @@ class PageViewController: UIPageViewController {
             setViewControllers([firstVC], direction: .forward, animated: true, completion: nil)
         }
     }
+
+    private func viewControllerAtIndex(index: Int) {
+        
+    }
 }
 
 extension PageViewController: UIPageViewControllerDataSource {

@@ -9,5 +9,5 @@
 import Foundation
 
 protocol PagedStreamView: class {
-  func setPage(_ page: Int)
+  var currentPage: Int { get }
 }

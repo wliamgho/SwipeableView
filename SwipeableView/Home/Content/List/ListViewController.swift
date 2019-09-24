@@ -8,13 +8,16 @@
 
 import UIKit
 
-class ListViewController: UIViewController {
+class ListViewController: UIViewController, PagedStreamView {
+    var currentPage: Int = 0
+
     @IBOutlet weak var cardView: CardView!
 
     var status = ""
 
-    init(status: String) {
+    init(status: String, currentPage: Int = 0) {
         self.status = status
+        self.currentPage = currentPage
 
         super.init(nibName: "ListViewController", bundle: nil)
     }
