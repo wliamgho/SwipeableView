@@ -12,11 +12,9 @@ class ListViewController: UIViewController {
     @IBOutlet weak var cardView: CardView!
 
     var status = ""
-    var currentPage = 0
 
-    init(status: String, currentPage: Int) {
+    init(status: String) {
         self.status = status
-        self.currentPage = currentPage
 
         super.init(nibName: "ListViewController", bundle: nil)
     }

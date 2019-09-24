@@ -30,6 +30,7 @@
 		5E70380C23376F29000FB048 /* StateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E70380A23376F29000FB048 /* StateViewController.swift */; };
 		5E70380D23376F29000FB048 /* StateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E70380B23376F29000FB048 /* StateViewController.xib */; };
 		5E70381023378143000FB048 /* PagedStreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E70380F23378143000FB048 /* PagedStreamView.swift */; };
+		5EFEADAD2339ED650091DBA9 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFEADAC2339ED650091DBA9 /* PageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		5E70380A23376F29000FB048 /* StateViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = StateViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
 		5E70380B23376F29000FB048 /* StateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StateViewController.xib; sourceTree = "<group>"; };
 		5E70380F23378143000FB048 /* PagedStreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagedStreamView.swift; sourceTree = "<group>"; };
+		5EFEADAC2339ED650091DBA9 /* PageViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 				5E0A55C82336614700A72FE9 /* Resources */,
 				5E0A55EA23366AE400A72FE9 /* Status.json */,
 				5E0A55EC23366AF300A72FE9 /* List.json */,
+				5EFEADAC2339ED650091DBA9 /* PageViewController.swift */,
 			);
 			path = SwipeableView;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				3D07EDF5220F14260058D942 /* AppDelegate.swift in Sources */,
 				5E0A55CA2336615E00A72FE9 /* TabBarController.swift in Sources */,
 				5E0A55E32336688000A72FE9 /* ListViewController.swift in Sources */,
+				5EFEADAD2339ED650091DBA9 /* PageViewController.swift in Sources */,
 				5E0A55D52336624000A72FE9 /* ProfileViewController.swift in Sources */,
 				5E0A55DF2336686600A72FE9 /* StatusViewController.swift in Sources */,
 				5E703806233757EE000FB048 /* StatusModel.swift in Sources */,

@@ -26,15 +26,23 @@
                         <constraint firstAttribute="height" constant="175" id="j6z-pu-0KT"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STATUS VIEW CONTROLLER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIs-gl-oaf">
+                    <rect key="frame" x="96" y="239" width="222" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="XIs-gl-oaf" firstAttribute="top" secondItem="sPA-pH-s3k" secondAttribute="bottom" constant="20" id="2bM-lV-vqi"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="sPA-pH-s3k" secondAttribute="trailing" constant="24" id="49B-fG-qqC"/>
                 <constraint firstItem="sPA-pH-s3k" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="FP1-X7-x8p"/>
                 <constraint firstItem="sPA-pH-s3k" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Lc7-hi-axv"/>
+                <constraint firstItem="XIs-gl-oaf" firstAttribute="centerX" secondItem="sPA-pH-s3k" secondAttribute="centerX" id="vpO-nL-vPU"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="139" y="95"/>
+            <point key="canvasLocation" x="137.68115942028987" y="94.419642857142847"/>
         </view>
     </objects>
 </document>

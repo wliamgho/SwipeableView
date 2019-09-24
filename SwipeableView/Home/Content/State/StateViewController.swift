@@ -14,9 +14,8 @@ class StateViewController: UIViewController {
     var status = ""
     var currentPage = 0
 
-    init(status: String, currentPage: Int) {
+    init(status: String) {
         self.status = status
-        self.currentPage = currentPage
 
         super.init(nibName: "StateViewController", bundle: nil)
     }
@@ -34,15 +33,5 @@ class StateViewController: UIViewController {
 
         cardView.statusLabel.text = status
         cardView.layer.borderWidth = 0
-    }
-}
-
-extension StateViewController: PagedStreamView {
-    func getCurrentPage() -> Int {
-        return currentPage
-    }
-
-    func setPage(_ page: Int) {
-        currentPage = page
     }
 }
