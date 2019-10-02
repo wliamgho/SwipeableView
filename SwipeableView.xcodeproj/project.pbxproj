@@ -17,19 +17,12 @@
 		5E0A55CF2336622500A72FE9 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E0A55CD2336622500A72FE9 /* HomeViewController.xib */; };
 		5E0A55D52336624000A72FE9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0A55D32336624000A72FE9 /* ProfileViewController.swift */; };
 		5E0A55D62336624000A72FE9 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E0A55D42336624000A72FE9 /* ProfileViewController.xib */; };
-		5E0A55DF2336686600A72FE9 /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0A55DD2336686600A72FE9 /* StatusViewController.swift */; };
-		5E0A55E02336686600A72FE9 /* StatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E0A55DE2336686600A72FE9 /* StatusViewController.xib */; };
-		5E0A55E32336688000A72FE9 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0A55E12336688000A72FE9 /* ListViewController.swift */; };
-		5E0A55E42336688000A72FE9 /* ListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E0A55E22336688000A72FE9 /* ListViewController.xib */; };
-		5E0A55EB23366AE400A72FE9 /* Status.json in Resources */ = {isa = PBXBuildFile; fileRef = 5E0A55EA23366AE400A72FE9 /* Status.json */; };
-		5E0A55ED23366AF300A72FE9 /* List.json in Resources */ = {isa = PBXBuildFile; fileRef = 5E0A55EC23366AF300A72FE9 /* List.json */; };
 		5E0A55F223366B9300A72FE9 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0A55F023366B9300A72FE9 /* CardView.swift */; };
 		5E0A55F323366B9300A72FE9 /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E0A55F123366B9300A72FE9 /* CardView.xib */; };
-		5E703806233757EE000FB048 /* StatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E703805233757EE000FB048 /* StatusModel.swift */; };
-		5E703808233757F7000FB048 /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E703807233757F7000FB048 /* ListModel.swift */; };
-		5E70380C23376F29000FB048 /* StateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E70380A23376F29000FB048 /* StateViewController.swift */; };
-		5E70380D23376F29000FB048 /* StateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E70380B23376F29000FB048 /* StateViewController.xib */; };
+		5E70380C23376F29000FB048 /* ScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E70380A23376F29000FB048 /* ScreenViewController.swift */; };
+		5E70380D23376F29000FB048 /* ScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E70380B23376F29000FB048 /* ScreenViewController.xib */; };
 		5E70381023378143000FB048 /* PagedStreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E70380F23378143000FB048 /* PagedStreamView.swift */; };
+		5EFEADAD2339ED650091DBA9 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFEADAC2339ED650091DBA9 /* PageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,19 +59,12 @@
 		5E0A55CD2336622500A72FE9 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		5E0A55D32336624000A72FE9 /* ProfileViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
 		5E0A55D42336624000A72FE9 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
-		5E0A55DD2336686600A72FE9 /* StatusViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
-		5E0A55DE2336686600A72FE9 /* StatusViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatusViewController.xib; sourceTree = "<group>"; };
-		5E0A55E12336688000A72FE9 /* ListViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
-		5E0A55E22336688000A72FE9 /* ListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListViewController.xib; sourceTree = "<group>"; };
-		5E0A55EA23366AE400A72FE9 /* Status.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Status.json; sourceTree = "<group>"; };
-		5E0A55EC23366AF300A72FE9 /* List.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = List.json; sourceTree = "<group>"; };
 		5E0A55F023366B9300A72FE9 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		5E0A55F123366B9300A72FE9 /* CardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
-		5E703805233757EE000FB048 /* StatusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusModel.swift; sourceTree = "<group>"; };
-		5E703807233757F7000FB048 /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
-		5E70380A23376F29000FB048 /* StateViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = StateViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
-		5E70380B23376F29000FB048 /* StateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StateViewController.xib; sourceTree = "<group>"; };
+		5E70380A23376F29000FB048 /* ScreenViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ScreenViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
+		5E70380B23376F29000FB048 /* ScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScreenViewController.xib; sourceTree = "<group>"; };
 		5E70380F23378143000FB048 /* PagedStreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagedStreamView.swift; sourceTree = "<group>"; };
+		5EFEADAC2339ED650091DBA9 /* PageViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,12 +119,11 @@
 				5E703804233757E3000FB048 /* Model */,
 				3D07EDF4220F14260058D942 /* AppDelegate.swift */,
 				5E0A55C92336615E00A72FE9 /* TabBarController.swift */,
+				5EFEADAC2339ED650091DBA9 /* PageViewController.swift */,
 				5E0A55D12336622D00A72FE9 /* Home */,
 				5E0A55D22336623400A72FE9 /* Profile */,
 				5E0A55F42336710400A72FE9 /* CardView */,
 				5E0A55C82336614700A72FE9 /* Resources */,
-				5E0A55EA23366AE400A72FE9 /* Status.json */,
-				5E0A55EC23366AF300A72FE9 /* List.json */,
 			);
 			path = SwipeableView;
 			sourceTree = "<group>";
@@ -190,30 +175,10 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		5E0A55E52336688800A72FE9 /* Status */ = {
-			isa = PBXGroup;
-			children = (
-				5E0A55DD2336686600A72FE9 /* StatusViewController.swift */,
-				5E0A55DE2336686600A72FE9 /* StatusViewController.xib */,
-			);
-			path = Status;
-			sourceTree = "<group>";
-		};
-		5E0A55E62336689400A72FE9 /* List */ = {
-			isa = PBXGroup;
-			children = (
-				5E0A55E12336688000A72FE9 /* ListViewController.swift */,
-				5E0A55E22336688000A72FE9 /* ListViewController.xib */,
-			);
-			path = List;
-			sourceTree = "<group>";
-		};
 		5E0A55E7233668A700A72FE9 /* Content */ = {
 			isa = PBXGroup;
 			children = (
-				5E70380923376F18000FB048 /* State */,
-				5E0A55E52336688800A72FE9 /* Status */,
-				5E0A55E62336689400A72FE9 /* List */,
+				5E70380923376F18000FB048 /* Screen */,
 			);
 			path = Content;
 			sourceTree = "<group>";
@@ -230,19 +195,17 @@
 		5E703804233757E3000FB048 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5E703805233757EE000FB048 /* StatusModel.swift */,
-				5E703807233757F7000FB048 /* ListModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		5E70380923376F18000FB048 /* State */ = {
+		5E70380923376F18000FB048 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
-				5E70380A23376F29000FB048 /* StateViewController.swift */,
-				5E70380B23376F29000FB048 /* StateViewController.xib */,
+				5E70380A23376F29000FB048 /* ScreenViewController.swift */,
+				5E70380B23376F29000FB048 /* ScreenViewController.xib */,
 			);
-			path = State;
+			path = Screen;
 			sourceTree = "<group>";
 		};
 		5E70380E23378133000FB048 /* Protocol */ = {
@@ -357,15 +320,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E70380D23376F29000FB048 /* StateViewController.xib in Resources */,
-				5E0A55E02336686600A72FE9 /* StatusViewController.xib in Resources */,
+				5E70380D23376F29000FB048 /* ScreenViewController.xib in Resources */,
 				3D07EDFF220F14280058D942 /* LaunchScreen.storyboard in Resources */,
-				5E0A55E42336688000A72FE9 /* ListViewController.xib in Resources */,
 				3D07EDFC220F14280058D942 /* Assets.xcassets in Resources */,
 				5E0A55D62336624000A72FE9 /* ProfileViewController.xib in Resources */,
-				5E0A55ED23366AF300A72FE9 /* List.json in Resources */,
 				5E0A55CF2336622500A72FE9 /* HomeViewController.xib in Resources */,
-				5E0A55EB23366AE400A72FE9 /* Status.json in Resources */,
 				5E0A55F323366B9300A72FE9 /* CardView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,15 +352,12 @@
 			files = (
 				3D07EDF5220F14260058D942 /* AppDelegate.swift in Sources */,
 				5E0A55CA2336615E00A72FE9 /* TabBarController.swift in Sources */,
-				5E0A55E32336688000A72FE9 /* ListViewController.swift in Sources */,
+				5EFEADAD2339ED650091DBA9 /* PageViewController.swift in Sources */,
 				5E0A55D52336624000A72FE9 /* ProfileViewController.swift in Sources */,
-				5E0A55DF2336686600A72FE9 /* StatusViewController.swift in Sources */,
-				5E703806233757EE000FB048 /* StatusModel.swift in Sources */,
 				5E70381023378143000FB048 /* PagedStreamView.swift in Sources */,
 				5E0A55F223366B9300A72FE9 /* CardView.swift in Sources */,
 				5E0A55CE2336622500A72FE9 /* HomeViewController.swift in Sources */,
-				5E703808233757F7000FB048 /* ListModel.swift in Sources */,
-				5E70380C23376F29000FB048 /* StateViewController.swift in Sources */,
+				5E70380C23376F29000FB048 /* ScreenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

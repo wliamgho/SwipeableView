@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StateViewController" customModule="SwipeableView" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ScreenViewController" customModule="SwipeableView" customModuleProvider="target">
             <connections>
                 <outlet property="cardView" destination="4xz-H5-fRB" id="nfO-Am-DLm"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -26,15 +26,24 @@
                         <constraint firstAttribute="height" constant="175" id="ZgW-ao-QWp"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View Controller Here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lsl-ts-YQb">
+                    <rect key="frame" x="24" y="243" width="366" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Lsl-ts-YQb" secondAttribute="trailing" constant="24" id="2do-g0-CDT"/>
                 <constraint firstItem="4xz-H5-fRB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="7ZR-NX-Y46"/>
                 <constraint firstItem="4xz-H5-fRB" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ZjH-vQ-PJl"/>
+                <constraint firstItem="Lsl-ts-YQb" firstAttribute="top" secondItem="4xz-H5-fRB" secondAttribute="bottom" constant="24" id="a6H-hX-z9i"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="4xz-H5-fRB" secondAttribute="trailing" constant="24" id="c6J-Uk-xJx"/>
+                <constraint firstItem="Lsl-ts-YQb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="kic-s8-lcb"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="139" y="98"/>
+            <point key="canvasLocation" x="137.68115942028987" y="97.767857142857139"/>
         </view>
     </objects>
 </document>
