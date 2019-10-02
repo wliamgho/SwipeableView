@@ -8,9 +8,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StatusViewController" customModule="SwipeableView" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ScreenViewController" customModule="SwipeableView" customModuleProvider="target">
             <connections>
-                <outlet property="cardView" destination="sPA-pH-s3k" id="05E-1U-Kqk"/>
+                <outlet property="cardView" destination="4xz-H5-fRB" id="nfO-Am-DLm"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,15 +19,15 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sPA-pH-s3k" customClass="CardView" customModule="SwipeableView" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4xz-H5-fRB" customClass="CardView" customModule="SwipeableView" customModuleProvider="target">
                     <rect key="frame" x="24" y="44" width="366" height="175"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="175" id="j6z-pu-0KT"/>
+                        <constraint firstAttribute="height" constant="175" id="ZgW-ao-QWp"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STATUS VIEW CONTROLLER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIs-gl-oaf">
-                    <rect key="frame" x="96" y="239" width="222" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View Controller Here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lsl-ts-YQb">
+                    <rect key="frame" x="24" y="243" width="366" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -35,14 +35,15 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="XIs-gl-oaf" firstAttribute="top" secondItem="sPA-pH-s3k" secondAttribute="bottom" constant="20" id="2bM-lV-vqi"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="sPA-pH-s3k" secondAttribute="trailing" constant="24" id="49B-fG-qqC"/>
-                <constraint firstItem="sPA-pH-s3k" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="FP1-X7-x8p"/>
-                <constraint firstItem="sPA-pH-s3k" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Lc7-hi-axv"/>
-                <constraint firstItem="XIs-gl-oaf" firstAttribute="centerX" secondItem="sPA-pH-s3k" secondAttribute="centerX" id="vpO-nL-vPU"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Lsl-ts-YQb" secondAttribute="trailing" constant="24" id="2do-g0-CDT"/>
+                <constraint firstItem="4xz-H5-fRB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="7ZR-NX-Y46"/>
+                <constraint firstItem="4xz-H5-fRB" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ZjH-vQ-PJl"/>
+                <constraint firstItem="Lsl-ts-YQb" firstAttribute="top" secondItem="4xz-H5-fRB" secondAttribute="bottom" constant="24" id="a6H-hX-z9i"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="4xz-H5-fRB" secondAttribute="trailing" constant="24" id="c6J-Uk-xJx"/>
+                <constraint firstItem="Lsl-ts-YQb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="kic-s8-lcb"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="137.68115942028987" y="94.419642857142847"/>
+            <point key="canvasLocation" x="137.68115942028987" y="97.767857142857139"/>
         </view>
     </objects>
 </document>

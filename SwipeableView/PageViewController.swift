@@ -9,27 +9,16 @@
 import UIKit
 
 class PageViewController: UIPageViewController {
-    var currentIndex: Int {
-        get {
-            return orderedViewControllers.index(of: orderedViewControllers.first!)!
-        }
-        set {
-            guard newValue >= 0, newValue < orderedViewControllers.count else { return }
+    private(set) var currentStreamVC: [UIViewController] = [UIViewController]()
+    private(set) var listData = [String]()
 
-            let vc = orderedViewControllers[newValue]
-            let direction: UIPageViewController.NavigationDirection = newValue > currentIndex ? .forward : .reverse
-            self.setViewControllers([vc], direction: direction, animated: true, completion: nil)
-        }
-    }
-
-    private(set) var orderedViewControllers: [UIViewController] = [UIViewController]()
-    private(set) var status = ""
+    private(set) var currentIndex = 0
 
     // MARK: - Initialize
-    init(status: String) {
-        self.status = status
+    init(listData: [String]) {
+        self.listData = listData
 
-        super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: [:])
+        super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
     }
 
     required init?(coder: NSCoder) {
@@ -46,48 +35,55 @@ class PageViewController: UIPageViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        setOrderedViewController()
-    }
-
-    private func setOrderedViewController() {
-        var controller = UIViewController()
-
-        if status == "on_processed" || status == "payment_status" || status == "delivered" {
-            controller = StatusViewController(status: status)
-        }
-
-        if status == "completed" {
-            controller = ListViewController(status: status)
-        } else {
-            controller = StateViewController(status: status)
-        }
-
-        orderedViewControllers.append(controller)
-
-        if let firstVC = orderedViewControllers.first {
-            setViewControllers([firstVC], direction: .forward, animated: true, completion: nil)
+        if let startingVC = setViewController(withIndex: 0) as? UIViewController {
+            self.setViewControllers([startingVC], direction: .forward, animated: true, completion: nil)
         }
     }
 
-    private func viewControllerAtIndex(index: Int) {
-        
+    private func setViewController(withIndex index: Int) -> PagedStreamView? {
+        if self.listData.count == 0 || index >= self.listData.count { return nil }
+
+        let status = listData[index]
+        let controller: PagedStreamView
+
+        controller = ScreenViewController(status: status, currentPage: index)
+
+        currentIndex = index
+
+        return controller
     }
 }
 
 extension PageViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        let previousIndex = currentIndex - 1
+        var index = (viewController as! PagedStreamView).currentPage
 
-        guard previousIndex >= 0 else { return nil }
+        if index == 0 || index == NSNotFound {
+            return nil
+        }
 
-        return orderedViewControllers[previousIndex]
+        index -= 1
+
+        return setViewController(withIndex: index) as? UIViewController
     }
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        let nextIndex = currentIndex + 1
+        var index = (viewController as! PagedStreamView).currentPage
 
-        guard nextIndex < orderedViewControllers.count else { return nil }
+        if index == NSNotFound { return nil }
 
-        return orderedViewControllers[nextIndex]
+        index += 1
+
+        if index == self.listData.count { return nil }
+
+        return setViewController(withIndex: index) as? UIViewController
+    }
+
+    func presentationCount(for pageViewController: UIPageViewController) -> Int {
+        return self.listData.count
+    }
+
+    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+        return 0
     }
 }
