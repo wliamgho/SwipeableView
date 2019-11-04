@@ -9,6 +9,10 @@
 import UIKit
 
 class ScreenViewController: UIViewController, PagedStreamView {
+    var currentView: UIView {
+        return self.view
+    }
+
     @IBOutlet weak var cardView: CardView!
 
     var status = ""

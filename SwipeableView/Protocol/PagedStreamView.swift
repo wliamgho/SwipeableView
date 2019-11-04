@@ -6,8 +6,10 @@
 //  Copyright © 2019 William. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol PagedStreamView: class {
-  var currentPage: Int { get }
+    var currentPage: Int { get }
+
+    var currentView: UIView { get }
 }

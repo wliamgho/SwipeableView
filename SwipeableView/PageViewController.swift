@@ -8,11 +8,17 @@
 
 import UIKit
 
-class PageViewController: UIPageViewController {
-    private(set) var currentStreamVC: [UIViewController] = [UIViewController]()
-    private(set) var listData = [String]()
+protocol PageViewDelegate: class {
+    func pageViewDidSwap()
+}
 
+class PageViewController: UIPageViewController {
+    weak var pageDelegate: PageViewDelegate?
+
+    private(set) var listData = [String]()
     private(set) var currentIndex = 0
+
+    var controller: PagedStreamView!
 
     // MARK: - Initialize
     init(listData: [String]) {
@@ -30,23 +36,28 @@ class PageViewController: UIPageViewController {
         super.viewDidLoad()
 
         dataSource = self
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+        delegate = self
 
         if let startingVC = setViewController(withIndex: 0) as? UIViewController {
             self.setViewControllers([startingVC], direction: .forward, animated: true, completion: nil)
         }
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+    }
+
     private func setViewController(withIndex index: Int) -> PagedStreamView? {
         if self.listData.count == 0 || index >= self.listData.count { return nil }
 
         let status = listData[index]
-        let controller: PagedStreamView
 
-        controller = ScreenViewController(status: status, currentPage: index)
+        if listData[index] == "List" {
+            controller = ListViewController(currentPage: index)
+        } else {
+            controller = ScreenViewController(status: status, currentPage: index)
+        }
 
         currentIndex = index
 
@@ -54,7 +65,7 @@ class PageViewController: UIPageViewController {
     }
 }
 
-extension PageViewController: UIPageViewControllerDataSource {
+extension PageViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         var index = (viewController as! PagedStreamView).currentPage
 
@@ -79,11 +90,10 @@ extension PageViewController: UIPageViewControllerDataSource {
         return setViewController(withIndex: index) as? UIViewController
     }
 
-    func presentationCount(for pageViewController: UIPageViewController) -> Int {
-        return self.listData.count
-    }
-
-    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
-        return 0
+    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
+        if let vc = pendingViewControllers[0] as? PagedStreamView {
+            self.currentIndex = vc.currentPage
+            pageDelegate?.pageViewDidSwap()
+        }
     }
 }

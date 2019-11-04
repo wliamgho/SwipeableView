@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="SwipeableView" customModuleProvider="target">
             <connections>
+                <outlet property="contentHeightConstraint" destination="L2H-AQ-7ey" id="ahU-m5-IG3"/>
+                <outlet property="contentView" destination="8pi-Vn-5Os" id="OwL-1L-uOl"/>
                 <outlet property="headerView" destination="psO-3c-kYy" id="Oa3-r5-zbW"/>
+                <outlet property="imageHeightConstraint" destination="NWW-jS-4sd" id="WA8-oA-vW0"/>
+                <outlet property="scrollView" destination="hLg-NU-HYg" id="osL-Eg-V0M"/>
+                <outlet property="topConstraint" destination="Nfi-4a-6KL" id="1n3-Sg-gP4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -26,14 +30,39 @@
                         <constraint firstAttribute="height" constant="250" id="NWW-jS-4sd"/>
                     </constraints>
                 </view>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="hLg-NU-HYg" customClass="CustomScrollView" customModule="SwipeableView" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8pi-Vn-5Os">
+                            <rect key="frame" x="0.0" y="380" width="375" height="330"/>
+                            <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="330" id="L2H-AQ-7ey"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="8pi-Vn-5Os" secondAttribute="trailing" id="2gq-uZ-OFo"/>
+                        <constraint firstAttribute="bottom" secondItem="8pi-Vn-5Os" secondAttribute="bottom" id="ERx-0r-PX1"/>
+                        <constraint firstItem="8pi-Vn-5Os" firstAttribute="leading" secondItem="hLg-NU-HYg" secondAttribute="leading" id="HDq-oC-vew"/>
+                        <constraint firstItem="8pi-Vn-5Os" firstAttribute="top" secondItem="hLg-NU-HYg" secondAttribute="top" constant="380" id="Nfi-4a-6KL"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="aR6-eS-ePh"/>
+                    </connections>
+                </scrollView>
             </subviews>
-            <color key="backgroundColor" red="0.96862745098039216" green="0.96078431372549022" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="psO-3c-kYy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Tpd-kF-n2k"/>
-                <constraint firstItem="psO-3c-kYy" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="hSu-tP-51b"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="psO-3c-kYy" secondAttribute="trailing" id="xZC-HT-x19"/>
+                <constraint firstItem="8pi-Vn-5Os" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="LHn-IP-oKq"/>
+                <constraint firstAttribute="bottom" secondItem="hLg-NU-HYg" secondAttribute="bottom" id="RnE-q2-ael"/>
+                <constraint firstItem="psO-3c-kYy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Tpd-kF-n2k"/>
+                <constraint firstAttribute="trailing" secondItem="hLg-NU-HYg" secondAttribute="trailing" id="b3B-NI-73A"/>
+                <constraint firstItem="hLg-NU-HYg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ejb-my-RRd"/>
+                <constraint firstItem="psO-3c-kYy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="hSu-tP-51b"/>
+                <constraint firstItem="hLg-NU-HYg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="tX0-SO-1yF"/>
+                <constraint firstAttribute="trailing" secondItem="psO-3c-kYy" secondAttribute="trailing" id="xZC-HT-x19"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="139" y="130"/>
         </view>
     </objects>
