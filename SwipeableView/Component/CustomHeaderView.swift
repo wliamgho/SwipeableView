@@ -10,7 +10,6 @@ import UIKit
 
 class CustomHeaderView: UIView {
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var cardView: UIView!
 
     private(set) var observer: NSKeyValueObservation?
     private(set) var viewControlelr: UIViewController?
@@ -47,9 +46,9 @@ class CustomHeaderView: UIView {
         }
     }
 
-    func observeOn(controller viewController: UIViewController) {
-        self.viewControlelr = viewController
-    }
+//    func observeOn(controller viewController: UIViewController) {
+//        self.viewControlelr = viewController
+//    }
 
     /// Handle Expandable Header When Scrolling event.
     ///
@@ -61,36 +60,41 @@ class CustomHeaderView: UIView {
                                   from oldOffset: CGFloat,
                                   to newOffset: CGFloat) {
         let contentOffsetY = abs(min(0, scrollView.contentOffset.y))
-        var expandHeader = max(24, contentOffsetY)
+        var expandHeader = max(0, contentOffsetY)
         let percentage = contentOffsetY / scrollView.contentInset.top
 
+        debugPrint("expandheader", expandHeader)
         if expandHeader <= 340 - 100 {
             UIView.animate(withDuration: 0.3) {
-                self.cardView.alpha = percentage
-                self.cardView.frame.origin.y = 0
+//                self.cardView.alpha = percentage
+//                self.contentView.alpha = percentage
+                
+//                self.cardView.frame.origin.y = 0
                 self.layoutIfNeeded()
             }
         } else {
             UIView.animate(withDuration: 0.3) {
-                self.cardView.alpha = percentage
-                self.cardView.frame.origin.y = 160
+//                self.contentView.alpha = percentage
+//                self.cardView.alpha = percentage
+
+//                self.cardView.frame.origin.y = 160
                 self.layoutIfNeeded()
             }
         }
 
         if oldOffset < newOffset {
             // Scroll top
-            if expandHeader > 24 {
+            if expandHeader > 0 {
                 expandHeader = min(250, contentOffsetY)
             } else {
-                expandHeader = max(24, contentOffsetY)
+                expandHeader = max(0, contentOffsetY)
             }
         } else if oldOffset >= newOffset {
             // Scroll down
             if expandHeader > 250 {
                 expandHeader = min(250, contentOffsetY)
             } else {
-                expandHeader = max(24, contentOffsetY)
+                expandHeader = max(0, contentOffsetY)
             }
         }
 

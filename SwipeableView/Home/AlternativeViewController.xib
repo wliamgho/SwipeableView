@@ -9,8 +9,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AlternativeViewController" customModule="SwipeableView" customModuleProvider="target">
             <connections>
-                <outlet property="collectionView" destination="qWV-5A-Jvv" id="FP6-NZ-DLJ"/>
+                <outlet property="contentHeightConstraint" destination="9nR-Xs-kh7" id="Y5l-pR-wJk"/>
+                <outlet property="contentTopConstraint" destination="49b-dG-HUs" id="Xub-Ap-mVr"/>
+                <outlet property="contentView" destination="RuM-yp-ssX" id="ota-uU-DJK"/>
                 <outlet property="headerView" destination="9Ln-8o-kbr" id="5f9-2q-5aO"/>
+                <outlet property="scrollView" destination="xux-W9-lnp" id="7aH-vm-low"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,34 +22,40 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="qWV-5A-Jvv">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="D0z-ur-evP">
-                        <size key="itemSize" width="50" height="50"/>
-                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    </collectionViewFlowLayout>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="7OI-cS-PYZ"/>
-                        <outlet property="delegate" destination="-1" id="Uel-Wz-3zu"/>
-                    </connections>
-                </collectionView>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Ln-8o-kbr" customClass="CustomHeaderView" customModule="SwipeableView" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="340"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="xux-W9-lnp">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RuM-yp-ssX">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="200" id="9nR-Xs-kh7"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="RuM-yp-ssX" firstAttribute="top" secondItem="xux-W9-lnp" secondAttribute="top" id="49b-dG-HUs"/>
+                        <constraint firstAttribute="bottom" secondItem="RuM-yp-ssX" secondAttribute="bottom" id="FHd-TF-JdT"/>
+                        <constraint firstItem="RuM-yp-ssX" firstAttribute="leading" secondItem="xux-W9-lnp" secondAttribute="leading" id="Oj3-U7-gve"/>
+                        <constraint firstAttribute="trailing" secondItem="RuM-yp-ssX" secondAttribute="trailing" id="dOZ-Nq-fEN"/>
+                    </constraints>
+                </scrollView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="qWV-5A-Jvv" secondAttribute="bottom" id="Qk6-ay-G0i"/>
-                <constraint firstAttribute="trailing" secondItem="qWV-5A-Jvv" secondAttribute="trailing" id="Wbg-R8-0W8"/>
-                <constraint firstItem="qWV-5A-Jvv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="bhB-qH-zij"/>
-                <constraint firstItem="qWV-5A-Jvv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gD1-7P-tId"/>
+                <constraint firstAttribute="bottom" secondItem="xux-W9-lnp" secondAttribute="bottom" id="7lz-El-qfo"/>
+                <constraint firstAttribute="trailing" secondItem="xux-W9-lnp" secondAttribute="trailing" id="QeE-pf-Qj7"/>
+                <constraint firstItem="xux-W9-lnp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="eoP-kA-3jo"/>
+                <constraint firstItem="xux-W9-lnp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gcQ-hM-Vog"/>
+                <constraint firstItem="RuM-yp-ssX" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="zqc-cF-9s3"/>
             </constraints>
-            <point key="canvasLocation" x="139" y="141"/>
+            <point key="canvasLocation" x="137.68115942028987" y="140.625"/>
         </view>
     </objects>
 </document>

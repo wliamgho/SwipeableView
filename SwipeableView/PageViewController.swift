@@ -43,11 +43,6 @@ class PageViewController: UIPageViewController {
         }
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-    }
-
     private func setViewController(withIndex index: Int) -> PagedStreamView? {
         if self.listData.count == 0 || index >= self.listData.count { return nil }
 
@@ -60,7 +55,6 @@ class PageViewController: UIPageViewController {
         }
 
         currentIndex = index
-        
 
         return controller
     }

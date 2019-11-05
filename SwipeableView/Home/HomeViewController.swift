@@ -17,7 +17,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
     @IBOutlet weak var imageHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var contentHeightConstraint: NSLayoutConstraint!
-    
+
     var currentStreamVC = [UIViewController]()
     private var pageViewController: PageViewController!
 
@@ -99,7 +99,6 @@ extension HomeViewController: UIScrollViewDelegate {
 //        let contentOffsetY = abs(min(0, scrollView.contentOffset.y))
 //        let percentage = contentOffsetY / scrollView.contentInset.top
         let contentOffset = scrollView.contentOffset.y
-        debugPrint("top inset", scrollView.contentInset.top)
 
         if scrollView.contentOffset.y < 0 {
             // Scroll down
@@ -111,22 +110,12 @@ extension HomeViewController: UIScrollViewDelegate {
             // Scroll top
             debugPrint("scroll up")
         }
-
-//        if percentage > 1.0 {
-//            // Scroll down
-//            let height = (topConstraint.constant + contentOffsetY) - 150
-//            imageHeightConstraint.constant = min(headerView.frame.height, height)
-//            statusBarView.isHidden = true
-//        } else {
-//            // Scroll up
-//            let height = (topConstraint.constant - contentOffsetY) - 150
-//            imageHeightConstraint.constant = max(0, height)
-//            statusBarView.isHidden = false
-//        }
     }
 }
 
 extension HomeViewController: PageViewDelegate {
+    func pageIndex(withIndex index: Int) {
+    }
     func pageViewDidSwap() {
         scrollView.setContentOffset(.zero, animated: true)
     }

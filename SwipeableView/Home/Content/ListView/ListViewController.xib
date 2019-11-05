@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,19 +17,28 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LIST VIEW CONTROLLER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UcL-pm-TZI">
-                    <rect key="frame" x="110" y="437.5" width="194" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Mj-Rg-ea3" customClass="CardView" customModule="SwipeableView" customModuleProvider="target">
+                    <rect key="frame" x="24" y="0.0" width="366" height="175"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="175" id="HBj-8r-MvE"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AvX-wF-oVD">
+                    <rect key="frame" x="0.0" y="185" width="414" height="711"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="UcL-pm-TZI" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="0Ty-jb-zgw"/>
-                <constraint firstItem="UcL-pm-TZI" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="eVL-x8-UwV"/>
+                <constraint firstAttribute="trailing" secondItem="AvX-wF-oVD" secondAttribute="trailing" id="9pm-18-FFE"/>
+                <constraint firstItem="AvX-wF-oVD" firstAttribute="top" secondItem="8Mj-Rg-ea3" secondAttribute="bottom" constant="10" id="EMR-15-yT3"/>
+                <constraint firstItem="8Mj-Rg-ea3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="24" id="FvQ-Jf-kI0"/>
+                <constraint firstAttribute="bottom" secondItem="AvX-wF-oVD" secondAttribute="bottom" id="H2b-vD-Bo7"/>
+                <constraint firstItem="8Mj-Rg-ea3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Rap-tr-U9H"/>
+                <constraint firstItem="AvX-wF-oVD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bg6-aL-yEH"/>
+                <constraint firstAttribute="trailing" secondItem="8Mj-Rg-ea3" secondAttribute="trailing" constant="24" id="tEk-6j-4TH"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="137.68115942028987" y="135.9375"/>
         </view>
     </objects>

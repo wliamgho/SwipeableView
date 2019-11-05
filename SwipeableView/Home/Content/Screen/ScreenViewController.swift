@@ -14,9 +14,13 @@ class ScreenViewController: UIViewController, PagedStreamView {
     }
 
     @IBOutlet weak var cardView: CardView!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableHeightConstraint: NSLayoutConstraint!
 
     var status = ""
     var currentPage: Int = 0
+
+    var itemData = ["test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test"]
 
     init(status: String, currentPage: Int = 0) {
         self.status = status
@@ -29,16 +33,34 @@ class ScreenViewController: UIViewController, PagedStreamView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-
-        self.view.frame.size.width = UIScreen.main.bounds.width
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         cardView.statusLabel.text = status
         cardView.layer.borderWidth = 0
+
+        tableView.register(UINib(nibName: TableViewCell.reuseId(), bundle: nil),
+                           forCellReuseIdentifier: TableViewCell.reuseId())
+        tableView.rowHeight = UITableView.automaticDimension
+    }
+}
+
+extension ScreenViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return itemData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.reuseId(), for: indexPath) as! TableViewCell
+        cell.itemLabel.text = "\(itemData[indexPath.row]) \(indexPath.row)"
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
+    }
+
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
 }
