@@ -12,6 +12,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var scrollView: CustomScrollView!
     @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var statusBarView: UIView!
 
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
     @IBOutlet weak var imageHeightConstraint: NSLayoutConstraint!
@@ -19,6 +20,8 @@ class HomeViewController: UIViewController {
     
     var currentStreamVC = [UIViewController]()
     private var pageViewController: PageViewController!
+
+    private(set) var pullToRefresh = PullToRefresh()
 
     var listData: [String] = ["SLIDE 1", "SLIDE 2", "SLIDE 3", "SLIDE 4", "List"]
     var lastPosY: CGFloat = 0
@@ -51,13 +54,18 @@ class HomeViewController: UIViewController {
 
         scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 44, right: 0)
         scrollView.scrollIndicatorInsets = scrollView.contentInset
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
 
         if let screen = pageViewController.controller.currentView as? UIView {
+            debugPrint(pageViewController.controller)
+            if pageViewController.controller is ScreenViewController {
+                contentView.backgroundColor = .blue
+            } else if pageViewController.controller is ListViewController {
+                contentView.backgroundColor = .green
+            }
         }
+
+        scrollView.refreshControl = pullToRefresh
+        pullToRefresh.delegate = self
     }
 
     private func configurePageView() {
@@ -73,9 +81,6 @@ class HomeViewController: UIViewController {
 
         scrollView.addSubview(pageViewController.view)
 
-//        contentView.addSubview(pageViewController.controller.currentView)
-//        contentView.sendSubviewToBack(contentView)
-
         lastPosY += headerView.frame.height
 
         contentHeightConstraint.constant = lastPosY
@@ -84,28 +89,53 @@ class HomeViewController: UIViewController {
     private func configureHeaderView() {
         scrollView.customTopView = headerView
         lastPosY += headerView.frame.height
+
+        contentHeightConstraint.constant = lastPosY
     }
 }
 
 extension HomeViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let contentOffsetY = abs(min(0, scrollView.contentOffset.y))
-        let percentage = contentOffsetY / scrollView.contentInset.top
+//        let contentOffsetY = abs(min(0, scrollView.contentOffset.y))
+//        let percentage = contentOffsetY / scrollView.contentInset.top
+        let contentOffset = scrollView.contentOffset.y
+        debugPrint("top inset", scrollView.contentInset.top)
 
-        if percentage > 1.0 {
+        if scrollView.contentOffset.y < 0 {
             // Scroll down
-            let height = (topConstraint.constant + contentOffsetY) - 150
-            imageHeightConstraint.constant = height
+            debugPrint("scroll down")
+        } else if scrollView.contentOffset.y == 0 {
+            // default
+            debugPrint("default")
         } else {
-            // Scroll up
-            let height = (topConstraint.constant - contentOffsetY) - 150
-            imageHeightConstraint.constant = max(0, height)
+            // Scroll top
+            debugPrint("scroll up")
         }
+
+//        if percentage > 1.0 {
+//            // Scroll down
+//            let height = (topConstraint.constant + contentOffsetY) - 150
+//            imageHeightConstraint.constant = min(headerView.frame.height, height)
+//            statusBarView.isHidden = true
+//        } else {
+//            // Scroll up
+//            let height = (topConstraint.constant - contentOffsetY) - 150
+//            imageHeightConstraint.constant = max(0, height)
+//            statusBarView.isHidden = false
+//        }
     }
 }
 
 extension HomeViewController: PageViewDelegate {
     func pageViewDidSwap() {
         scrollView.setContentOffset(.zero, animated: true)
+    }
+}
+
+extension HomeViewController: PullToRefreshDelegate {
+    func beginRefreshing() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+          self.pullToRefresh.endRefreshing()
+        }
     }
 }

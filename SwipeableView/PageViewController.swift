@@ -60,6 +60,7 @@ class PageViewController: UIPageViewController {
         }
 
         currentIndex = index
+        
 
         return controller
     }

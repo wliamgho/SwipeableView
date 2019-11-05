@@ -14,6 +14,7 @@
                 <outlet property="headerView" destination="psO-3c-kYy" id="Oa3-r5-zbW"/>
                 <outlet property="imageHeightConstraint" destination="NWW-jS-4sd" id="WA8-oA-vW0"/>
                 <outlet property="scrollView" destination="hLg-NU-HYg" id="osL-Eg-V0M"/>
+                <outlet property="statusBarView" destination="HBc-n4-vMC" id="31j-XR-1Fo"/>
                 <outlet property="topConstraint" destination="Nfi-4a-6KL" id="1n3-Sg-gP4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -51,19 +52,63 @@
                         <outlet property="delegate" destination="-1" id="aR6-eS-ePh"/>
                     </connections>
                 </scrollView>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HBc-n4-vMC">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="24"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="24" id="w9D-cH-4yX"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="HBc-n4-vMC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="8pE-DG-UbM"/>
                 <constraint firstItem="8pi-Vn-5Os" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="LHn-IP-oKq"/>
                 <constraint firstAttribute="bottom" secondItem="hLg-NU-HYg" secondAttribute="bottom" id="RnE-q2-ael"/>
                 <constraint firstItem="psO-3c-kYy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Tpd-kF-n2k"/>
                 <constraint firstAttribute="trailing" secondItem="hLg-NU-HYg" secondAttribute="trailing" id="b3B-NI-73A"/>
+                <constraint firstAttribute="trailing" secondItem="HBc-n4-vMC" secondAttribute="trailing" id="eOp-Tf-JVT"/>
                 <constraint firstItem="hLg-NU-HYg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ejb-my-RRd"/>
                 <constraint firstItem="psO-3c-kYy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="hSu-tP-51b"/>
+                <constraint firstItem="HBc-n4-vMC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="tKr-ej-4wd"/>
                 <constraint firstItem="hLg-NU-HYg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="tX0-SO-1yF"/>
                 <constraint firstAttribute="trailing" secondItem="psO-3c-kYy" secondAttribute="trailing" id="xZC-HT-x19"/>
             </constraints>
             <point key="canvasLocation" x="139" y="130"/>
+        </view>
+        <view contentMode="scaleToFill" id="vAu-as-lVF">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ayQ-nH-SnY">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ghQ-ty-uyq">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W7N-v5-A0r">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="250" id="8W4-1P-fgG"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="W7N-v5-A0r" firstAttribute="top" secondItem="vAu-as-lVF" secondAttribute="top" id="1hE-gy-Cm9"/>
+                <constraint firstAttribute="trailing" secondItem="W7N-v5-A0r" secondAttribute="trailing" id="6ol-bd-ZJu"/>
+                <constraint firstItem="ayQ-nH-SnY" firstAttribute="leading" secondItem="vAu-as-lVF" secondAttribute="leading" id="FfO-PI-iMl"/>
+                <constraint firstAttribute="trailing" secondItem="ayQ-nH-SnY" secondAttribute="trailing" id="Uu5-wU-LiM"/>
+                <constraint firstAttribute="bottom" secondItem="ayQ-nH-SnY" secondAttribute="bottom" id="Yx1-tI-p15"/>
+                <constraint firstItem="W7N-v5-A0r" firstAttribute="leading" secondItem="vAu-as-lVF" secondAttribute="leading" id="qMv-4F-oAo"/>
+                <constraint firstItem="ayQ-nH-SnY" firstAttribute="top" secondItem="vAu-as-lVF" secondAttribute="top" id="yez-ef-7bP"/>
+            </constraints>
+            <point key="canvasLocation" x="106" y="-528"/>
         </view>
     </objects>
 </document>

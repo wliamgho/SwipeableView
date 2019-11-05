@@ -19,6 +19,13 @@
 		5E0A55D62336624000A72FE9 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E0A55D42336624000A72FE9 /* ProfileViewController.xib */; };
 		5E0A55F223366B9300A72FE9 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0A55F023366B9300A72FE9 /* CardView.swift */; };
 		5E0A55F323366B9300A72FE9 /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E0A55F123366B9300A72FE9 /* CardView.xib */; };
+		5E2DBF2923712D0D007F55D2 /* PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2DBF2823712D0D007F55D2 /* PullToRefresh.swift */; };
+		5E2DBF2C23712E82007F55D2 /* AlternativeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2DBF2A23712E82007F55D2 /* AlternativeViewController.swift */; };
+		5E2DBF2D23712E82007F55D2 /* AlternativeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E2DBF2B23712E82007F55D2 /* AlternativeViewController.xib */; };
+		5E2DBF2F23712F66007F55D2 /* CustomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2DBF2E23712F66007F55D2 /* CustomHeaderView.swift */; };
+		5E2DBF3123712F8B007F55D2 /* CustomHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E2DBF3023712F8B007F55D2 /* CustomHeaderView.xib */; };
+		5E2DBF352371360B007F55D2 /* ItemListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2DBF332371360B007F55D2 /* ItemListCell.swift */; };
+		5E2DBF362371360B007F55D2 /* ItemListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E2DBF342371360B007F55D2 /* ItemListCell.xib */; };
 		5E70380C23376F29000FB048 /* ScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E70380A23376F29000FB048 /* ScreenViewController.swift */; };
 		5E70380D23376F29000FB048 /* ScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E70380B23376F29000FB048 /* ScreenViewController.xib */; };
 		5E70381023378143000FB048 /* PagedStreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E70380F23378143000FB048 /* PagedStreamView.swift */; };
@@ -64,6 +71,13 @@
 		5E0A55D42336624000A72FE9 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		5E0A55F023366B9300A72FE9 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		5E0A55F123366B9300A72FE9 /* CardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
+		5E2DBF2823712D0D007F55D2 /* PullToRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefresh.swift; sourceTree = "<group>"; };
+		5E2DBF2A23712E82007F55D2 /* AlternativeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlternativeViewController.swift; sourceTree = "<group>"; };
+		5E2DBF2B23712E82007F55D2 /* AlternativeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlternativeViewController.xib; sourceTree = "<group>"; };
+		5E2DBF2E23712F66007F55D2 /* CustomHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeaderView.swift; sourceTree = "<group>"; };
+		5E2DBF3023712F8B007F55D2 /* CustomHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomHeaderView.xib; sourceTree = "<group>"; };
+		5E2DBF332371360B007F55D2 /* ItemListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListCell.swift; sourceTree = "<group>"; };
+		5E2DBF342371360B007F55D2 /* ItemListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemListCell.xib; sourceTree = "<group>"; };
 		5E70380A23376F29000FB048 /* ScreenViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ScreenViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
 		5E70380B23376F29000FB048 /* ScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScreenViewController.xib; sourceTree = "<group>"; };
 		5E70380F23378143000FB048 /* PagedStreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagedStreamView.swift; sourceTree = "<group>"; };
@@ -121,6 +135,7 @@
 		3D07EDF3220F14250058D942 /* SwipeableView */ = {
 			isa = PBXGroup;
 			children = (
+				5E2DBF2723712D02007F55D2 /* Component */,
 				5E70380E23378133000FB048 /* Protocol */,
 				5E703804233757E3000FB048 /* Model */,
 				3D07EDF4220F14260058D942 /* AppDelegate.swift */,
@@ -169,6 +184,8 @@
 				5E0A55E7233668A700A72FE9 /* Content */,
 				5E0A55CC2336622500A72FE9 /* HomeViewController.swift */,
 				5E0A55CD2336622500A72FE9 /* HomeViewController.xib */,
+				5E2DBF2A23712E82007F55D2 /* AlternativeViewController.swift */,
+				5E2DBF2B23712E82007F55D2 /* AlternativeViewController.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -198,6 +215,26 @@
 				5E0A55F123366B9300A72FE9 /* CardView.xib */,
 			);
 			path = CardView;
+			sourceTree = "<group>";
+		};
+		5E2DBF2723712D02007F55D2 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				5E2DBF32237135FC007F55D2 /* Cell */,
+				5E2DBF2823712D0D007F55D2 /* PullToRefresh.swift */,
+				5E2DBF2E23712F66007F55D2 /* CustomHeaderView.swift */,
+				5E2DBF3023712F8B007F55D2 /* CustomHeaderView.xib */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		5E2DBF32237135FC007F55D2 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				5E2DBF332371360B007F55D2 /* ItemListCell.swift */,
+				5E2DBF342371360B007F55D2 /* ItemListCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		5E703804233757E3000FB048 /* Model */ = {
@@ -341,6 +378,9 @@
 				3D07EDFF220F14280058D942 /* LaunchScreen.storyboard in Resources */,
 				5EE36A7023702B3E006DE2E6 /* ListViewController.xib in Resources */,
 				3D07EDFC220F14280058D942 /* Assets.xcassets in Resources */,
+				5E2DBF3123712F8B007F55D2 /* CustomHeaderView.xib in Resources */,
+				5E2DBF2D23712E82007F55D2 /* AlternativeViewController.xib in Resources */,
+				5E2DBF362371360B007F55D2 /* ItemListCell.xib in Resources */,
 				5E0A55D62336624000A72FE9 /* ProfileViewController.xib in Resources */,
 				5E0A55CF2336622500A72FE9 /* HomeViewController.xib in Resources */,
 				5E0A55F323366B9300A72FE9 /* CardView.xib in Resources */,
@@ -374,7 +414,11 @@
 				5E0A55D52336624000A72FE9 /* ProfileViewController.swift in Sources */,
 				5EE36A7223703974006DE2E6 /* CustomScrollView.swift in Sources */,
 				5E70381023378143000FB048 /* PagedStreamView.swift in Sources */,
+				5E2DBF352371360B007F55D2 /* ItemListCell.swift in Sources */,
+				5E2DBF2923712D0D007F55D2 /* PullToRefresh.swift in Sources */,
 				5EE36A6F23702B3E006DE2E6 /* ListViewController.swift in Sources */,
+				5E2DBF2F23712F66007F55D2 /* CustomHeaderView.swift in Sources */,
+				5E2DBF2C23712E82007F55D2 /* AlternativeViewController.swift in Sources */,
 				5E0A55F223366B9300A72FE9 /* CardView.swift in Sources */,
 				5E0A55CE2336622500A72FE9 /* HomeViewController.swift in Sources */,
 				5E70380C23376F29000FB048 /* ScreenViewController.swift in Sources */,

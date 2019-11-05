@@ -29,6 +29,12 @@ class ScreenViewController: UIViewController, PagedStreamView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        self.view.frame.size.width = UIScreen.main.bounds.width
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

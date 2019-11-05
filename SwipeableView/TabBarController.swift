@@ -9,11 +9,13 @@
 import UIKit
 
 class TabBarController: UITabBarController {
-  private var homeVC: HomeViewController!
-  private var profileVC: ProfileViewController!
+//    private var homeVC: HomeViewController!
+    private var homeVC: AlternativeViewController!
+    private var profileVC: ProfileViewController!
 
   init() {
-    homeVC = HomeViewController()
+//    homeVC = HomeViewController()
+    homeVC = AlternativeViewController()
     profileVC = ProfileViewController()
 
     super.init(nibName: nil, bundle: nil)
