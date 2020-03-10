@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SwipeableView'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of SwipeableView.'
+  s.version          = '1.0.0'
+  s.summary          = 'SwipeableView is a custom page view controller by using card view as an indicator of item in each page.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,17 +18,17 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+                      'SwipeableView is a custom page view controller by using card view as an indicator of item in each page.'
                        DESC
-
-  s.homepage         = 'https://github.com/William/SwipeableView'
+  s.homepage         = 'https://github.com/wliam06/SwipeableView'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'William' => 'will.liiam06@gmail.com' }
-  s.source           = { :git => 'https://github.com/William/SwipeableView.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/wliam06/SwipeableView.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '11.0'
+  s.swift_version = '4.0'
 
   s.source_files = 'SwipeableView/Classes/**/*'
   
