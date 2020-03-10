@@ -7,18 +7,33 @@
 //
 
 import UIKit
+import SwipeableView
 
 class ViewController: UIViewController {
-  private var testView: TestView!
+  private var cardView: CardView!
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    testView = TestView()
-
-    self.view.addSubview(testView)
+    loadUI()
   }
 
+  private func loadUI() {
+    loadCardView()
+  }
+
+  private func loadCardView() {
+    cardView = CardView(title: "Welcome")
+    self.view.addSubview(cardView)
+
+    cardView.translatesAutoresizingMaskIntoConstraints = false
+
+    cardView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 24).isActive = true
+    cardView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -24).isActive = true
+    cardView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 24).isActive = true
+    cardView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+  }
+  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
   }

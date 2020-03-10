@@ -23,7 +23,7 @@ class TestView: UIView {
 
   init() {
     super.init(frame: CGRect(x: 0,
-                             y: 20,
+                             y: 0,
                              width: UIScreen.main.bounds.width,
                              height: 200))
 
@@ -86,49 +86,21 @@ class TestView: UIView {
   private func setContainerView() {
     containerView.layer.masksToBounds = true
     containerView.layer.cornerRadius = 16
-    containerView.frame = self.contentView.bounds
 
     self.addSubview(containerView)
 
     containerView.translatesAutoresizingMaskIntoConstraints = false
-//    let leadingConstraint = NSLayoutConstraint(item: containerView,
-//                                               attribute: .leading,
-//                                               relatedBy: .equal,
-//                                               toItem: nil,
-//                                               attribute: .leading,
-//                                               multiplier: 1,
-//                                              constant: 20).isActive = true
-//    let trailingConstraint = NSLayoutConstraint(item: containerView,
-//                                                attribute: .trailing,
-//                                                relatedBy: .equal,
-//                                                toItem: nil,
-//                                                attribute: .trailing,
-//                                                multiplier: 1,
-//                                                constant: 20)
 
-//    containerView.addConstraints([leadingConstraint, trailingConstraint])
-//    containerView.addConstraint(leadingConstraint)
-//    containerView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 24).isActive = true
-//    containerView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -24).isActive = true
-//    containerView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-//    containerView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+    containerView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+    containerView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+    containerView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+    containerView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
   }
 
   private func setContentView() {
     contentView.frame = self.bounds
     contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     self.addSubview(contentView)
-
-    contentView.translatesAutoresizingMaskIntoConstraints = false
-
-    let margins = self.layoutMarginsGuide
-
-    contentView.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
-    contentView.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
-    contentView.topAnchor.constraint(equalTo: margins.topAnchor, constant: 8).isActive = true
-    contentView.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: 8).isActive = true
-
-    contentView.backgroundColor = .lightGray
   }
 
   private func loadView() {
