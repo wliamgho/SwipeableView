@@ -1,0 +1,6 @@
+framework module Pods_SwipeableView_Tests {
+  umbrella header "Pods-SwipeableView_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

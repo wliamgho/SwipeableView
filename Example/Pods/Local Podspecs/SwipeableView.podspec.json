@@ -1,0 +1,22 @@
+{
+  "name": "SwipeableView",
+  "version": "0.1.0",
+  "summary": "A short description of SwipeableView.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/William/SwipeableView",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "William": "will.liiam06@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/William/SwipeableView.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "SwipeableView/Classes/**/*"
+}
