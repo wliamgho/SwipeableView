@@ -9,16 +9,18 @@
 import UIKit
 
 class ViewController: UIViewController {
+  private var testView: TestView!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
+  override func viewDidLoad() {
+    super.viewDidLoad()
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    testView = TestView()
 
+    self.view.addSubview(testView)
+  }
+
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+  }
 }
 

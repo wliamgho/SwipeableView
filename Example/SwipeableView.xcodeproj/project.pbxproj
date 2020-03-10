@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4211FB401F77B6B34D7A405A /* Pods_SwipeableView_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 520F434304453655208BDA4F /* Pods_SwipeableView_Tests.framework */; };
+		5E55B62E24174A3500BB0CDF /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E55B62D24174A3500BB0CDF /* TestView.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 		335C6291E4E614AC5666083C /* Pods_SwipeableView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwipeableView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F74B7EA3D45890FFB078F12 /* Pods-SwipeableView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwipeableView_Example.release.xcconfig"; path = "Target Support Files/Pods-SwipeableView_Example/Pods-SwipeableView_Example.release.xcconfig"; sourceTree = "<group>"; };
 		520F434304453655208BDA4F /* Pods_SwipeableView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwipeableView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E55B62D24174A3500BB0CDF /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* SwipeableView_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwipeableView_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
+				5E55B62D24174A3500BB0CDF /* TestView.swift */,
 			);
 			name = "Example for SwipeableView";
 			path = SwipeableView;
@@ -350,6 +353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E55B62E24174A3500BB0CDF /* TestView.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
