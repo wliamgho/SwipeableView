@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeaderHomeView" customModule="SwipeableView" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="i5M-Pr-FkT" id="pB1-dW-5L2"/>
+                <outlet property="nameLabel" destination="Afs-u8-Dbu" id="Ihz-GF-jJv"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="oJZ-mP-PH1">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Unb-2E-KZJ">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wQH-Nc-3Dd" customClass="CircularView" customModule="SwipeableView" customModuleProvider="target">
+                                    <rect key="frame" x="370" y="0.0" width="44" height="44"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="UcL-Gs-OLa"/>
+                                        <constraint firstAttribute="width" constant="44" id="mJX-Pj-TS2"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="wQH-Nc-3Dd" secondAttribute="bottom" id="V7T-TQ-jfC"/>
+                                <constraint firstAttribute="trailing" secondItem="wQH-Nc-3Dd" secondAttribute="trailing" id="XjT-lW-oC8"/>
+                                <constraint firstItem="wQH-Nc-3Dd" firstAttribute="top" secondItem="Unb-2E-KZJ" secondAttribute="top" id="bN8-9F-NQQ"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome, " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Afs-u8-Dbu">
+                            <rect key="frame" x="0.0" y="44" width="80.5" height="26"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="Unb-2E-KZJ" firstAttribute="top" secondItem="oJZ-mP-PH1" secondAttribute="top" id="KGs-te-5R0"/>
+                        <constraint firstItem="Unb-2E-KZJ" firstAttribute="leading" secondItem="oJZ-mP-PH1" secondAttribute="leading" id="a6y-6S-9sL"/>
+                        <constraint firstAttribute="trailing" secondItem="Unb-2E-KZJ" secondAttribute="trailing" id="aMC-ZA-drJ"/>
+                        <constraint firstItem="Afs-u8-Dbu" firstAttribute="top" secondItem="Unb-2E-KZJ" secondAttribute="bottom" id="iw6-OS-9nO"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="oJZ-mP-PH1" secondAttribute="trailing" id="Be0-D5-VDo"/>
+                <constraint firstItem="oJZ-mP-PH1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Dpb-4v-1Cu"/>
+                <constraint firstItem="oJZ-mP-PH1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="GoA-jh-7EO"/>
+                <constraint firstAttribute="bottom" secondItem="oJZ-mP-PH1" secondAttribute="bottom" id="weK-5w-Vek"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+</document>
