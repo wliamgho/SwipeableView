@@ -9,9 +9,16 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
+  @IBOutlet weak var swipeableCardView: SwipeableCardView!
+
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    self.navigationController?.setNavigationBarHidden(true, animated: animated)
+  }
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+
+    swipeableCardView.updateData = ["test 1", "test 2", "test 3", "test 4", "test 5", "test 6", "test 7"]
+  }
 }
