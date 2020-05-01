@@ -18,6 +18,7 @@
 		3D4150982455666000EDD09C /* SwipeableCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4150972455666000EDD09C /* SwipeableCardView.swift */; };
 		3D41509C2455724700EDD09C /* CardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41509A2455724700EDD09C /* CardViewCell.swift */; };
 		3D41509D2455724700EDD09C /* CardViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D41509B2455724700EDD09C /* CardViewCell.xib */; };
+		3DB4D66E245681AD00DA2061 /* SwipeableCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB4D66D245681AD00DA2061 /* SwipeableCardController.swift */; };
 		5E0A55CA2336615E00A72FE9 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0A55C92336615E00A72FE9 /* TabBarController.swift */; };
 		5E0A55CE2336622500A72FE9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0A55CC2336622500A72FE9 /* HomeViewController.swift */; };
 		5E0A55CF2336622500A72FE9 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E0A55CD2336622500A72FE9 /* HomeViewController.xib */; };
@@ -65,6 +66,7 @@
 		3D4150972455666000EDD09C /* SwipeableCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableCardView.swift; sourceTree = "<group>"; };
 		3D41509A2455724700EDD09C /* CardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewCell.swift; sourceTree = "<group>"; };
 		3D41509B2455724700EDD09C /* CardViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardViewCell.xib; sourceTree = "<group>"; };
+		3DB4D66D245681AD00DA2061 /* SwipeableCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableCardController.swift; sourceTree = "<group>"; };
 		5E0A55C92336615E00A72FE9 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		5E0A55CC2336622500A72FE9 /* HomeViewController.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; tabWidth = 2; };
 		5E0A55CD2336622500A72FE9 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				5E0A55C92336615E00A72FE9 /* TabBarController.swift */,
+				3DB4D66D245681AD00DA2061 /* SwipeableCardController.swift */,
 				5E0A55D12336622D00A72FE9 /* Home */,
 				5E0A55D22336623400A72FE9 /* Profile */,
 			);
@@ -409,6 +412,7 @@
 			files = (
 				3D07EDF5220F14260058D942 /* AppDelegate.swift in Sources */,
 				5E0A55CA2336615E00A72FE9 /* TabBarController.swift in Sources */,
+				3DB4D66E245681AD00DA2061 /* SwipeableCardController.swift in Sources */,
 				5E0A55D52336624000A72FE9 /* ProfileViewController.swift in Sources */,
 				5E70381023378143000FB048 /* PagedStreamView.swift in Sources */,
 				5E0A55F223366B9300A72FE9 /* CardView.swift in Sources */,

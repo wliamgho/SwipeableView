@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina5_9" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="SwipeableView" customModuleProvider="target">
             <connections>
-                <outlet property="swipeableCardView" destination="5ah-tx-Vgz" id="faO-Iz-Yh4"/>
+                <outlet property="containerCardView" destination="JPu-Kb-av4" id="Diq-x1-59X"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -31,28 +29,22 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="fullname" value="Jacky"/>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="5ah-tx-Vgz" customClass="SwipeableCardView" customModule="SwipeableView" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JPu-Kb-av4">
                     <rect key="frame" x="0.0" y="134" width="375" height="200"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="200" id="XCe-DP-gNE"/>
+                        <constraint firstAttribute="height" constant="200" id="RGK-rv-upT"/>
                     </constraints>
-                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PiB-dD-DHg">
-                        <size key="itemSize" width="336" height="180"/>
-                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    </collectionViewFlowLayout>
-                </collectionView>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="5ah-tx-Vgz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="9KZ-WX-azL"/>
-                <constraint firstItem="5ah-tx-Vgz" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="9jF-93-r2I"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="JPu-Kb-av4" secondAttribute="trailing" id="ETw-fB-xTg"/>
                 <constraint firstItem="Xjr-cf-l3E" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="OZ7-fD-vPu"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Xjr-cf-l3E" secondAttribute="trailing" constant="20" id="ZOj-Af-e0h"/>
+                <constraint firstItem="JPu-Kb-av4" firstAttribute="top" secondItem="Xjr-cf-l3E" secondAttribute="bottom" constant="20" id="ke6-PU-qmu"/>
                 <constraint firstItem="Xjr-cf-l3E" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="m7v-Gh-bK6"/>
-                <constraint firstItem="5ah-tx-Vgz" firstAttribute="top" secondItem="Xjr-cf-l3E" secondAttribute="bottom" constant="20" id="nlr-X1-tkb"/>
+                <constraint firstItem="JPu-Kb-av4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="qnt-iE-jCJ"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="139" y="130"/>
