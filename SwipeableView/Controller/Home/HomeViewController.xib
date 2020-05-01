@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina5_9" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="SwipeableView" customModuleProvider="target">
             <connections>
-                <outlet property="swipeableCardView" destination="5ah-tx-Vgz" id="faO-Iz-Yh4"/>
+                <outlet property="scrollView" destination="B3D-pi-0pm" id="k2W-kR-iZD"/>
+                <outlet property="stackView" destination="nWO-Gv-C0b" id="G4V-E9-bBL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,38 +20,53 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xjr-cf-l3E" customClass="HeaderHomeView" customModule="SwipeableView" customModuleProvider="target">
-                    <rect key="frame" x="20" y="44" width="335" height="70"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tyn-uE-PqD">
+                    <rect key="frame" x="0.0" y="44" width="375" height="768"/>
+                    <subviews>
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B3D-pi-0pm">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="768"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7wJ-lr-rVj">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="nWO-Gv-C0b">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                        </stackView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="nWO-Gv-C0b" firstAttribute="top" secondItem="7wJ-lr-rVj" secondAttribute="top" id="3jg-M7-R05"/>
+                                        <constraint firstItem="nWO-Gv-C0b" firstAttribute="leading" secondItem="7wJ-lr-rVj" secondAttribute="leading" id="6HL-pq-pBg"/>
+                                        <constraint firstAttribute="trailing" secondItem="nWO-Gv-C0b" secondAttribute="trailing" id="cVV-ce-rl5"/>
+                                        <constraint firstAttribute="bottom" secondItem="nWO-Gv-C0b" secondAttribute="bottom" id="p9D-g1-Brx"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="7wJ-lr-rVj" secondAttribute="bottom" id="TEN-v8-77L"/>
+                                <constraint firstAttribute="trailing" secondItem="7wJ-lr-rVj" secondAttribute="trailing" id="fGT-FV-TsM"/>
+                                <constraint firstItem="7wJ-lr-rVj" firstAttribute="top" secondItem="B3D-pi-0pm" secondAttribute="top" id="pX6-pa-OPZ"/>
+                                <constraint firstItem="7wJ-lr-rVj" firstAttribute="leading" secondItem="B3D-pi-0pm" secondAttribute="leading" id="tcb-Sx-PB1"/>
+                            </constraints>
+                        </scrollView>
+                    </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="70" id="QdW-OH-P4p"/>
+                        <constraint firstAttribute="trailing" secondItem="B3D-pi-0pm" secondAttribute="trailing" id="cEV-hI-CoA"/>
+                        <constraint firstItem="B3D-pi-0pm" firstAttribute="leading" secondItem="Tyn-uE-PqD" secondAttribute="leading" id="f1G-I7-5Dd"/>
+                        <constraint firstItem="B3D-pi-0pm" firstAttribute="top" secondItem="Tyn-uE-PqD" secondAttribute="top" id="q7x-vi-mKG"/>
+                        <constraint firstAttribute="bottom" secondItem="B3D-pi-0pm" secondAttribute="bottom" id="xjD-1V-9C8"/>
                     </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="fullname" value="Jacky"/>
-                    </userDefinedRuntimeAttributes>
                 </view>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="5ah-tx-Vgz" customClass="SwipeableCardView" customModule="SwipeableView" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="134" width="375" height="200"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="200" id="XCe-DP-gNE"/>
-                    </constraints>
-                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PiB-dD-DHg">
-                        <size key="itemSize" width="336" height="180"/>
-                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    </collectionViewFlowLayout>
-                </collectionView>
             </subviews>
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="5ah-tx-Vgz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="9KZ-WX-azL"/>
-                <constraint firstItem="5ah-tx-Vgz" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="9jF-93-r2I"/>
-                <constraint firstItem="Xjr-cf-l3E" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="OZ7-fD-vPu"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Xjr-cf-l3E" secondAttribute="trailing" constant="20" id="ZOj-Af-e0h"/>
-                <constraint firstItem="Xjr-cf-l3E" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="m7v-Gh-bK6"/>
-                <constraint firstItem="5ah-tx-Vgz" firstAttribute="top" secondItem="Xjr-cf-l3E" secondAttribute="bottom" constant="20" id="nlr-X1-tkb"/>
+                <constraint firstItem="Tyn-uE-PqD" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="6s2-9r-X1W"/>
+                <constraint firstItem="Tyn-uE-PqD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="EX6-gY-AIU"/>
+                <constraint firstItem="7wJ-lr-rVj" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" priority="250" id="gY0-9j-xIV"/>
+                <constraint firstAttribute="bottom" secondItem="Tyn-uE-PqD" secondAttribute="bottom" id="iSX-IN-nqK"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Tyn-uE-PqD" secondAttribute="trailing" id="rah-Fe-9Ss"/>
+                <constraint firstItem="7wJ-lr-rVj" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="x87-OD-EtG"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="139" y="130"/>

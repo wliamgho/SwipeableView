@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -21,13 +19,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="oJZ-mP-PH1">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                    <rect key="frame" x="20" y="0.0" width="374" height="70"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Unb-2E-KZJ">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wQH-Nc-3Dd" customClass="CircularView" customModule="SwipeableView" customModuleProvider="target">
-                                    <rect key="frame" x="370" y="0.0" width="44" height="44"/>
+                                    <rect key="frame" x="330" y="0.0" width="44" height="44"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="44" id="UcL-Gs-OLa"/>
@@ -59,12 +57,13 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="oJZ-mP-PH1" secondAttribute="trailing" id="Be0-D5-VDo"/>
+                <constraint firstAttribute="trailing" secondItem="oJZ-mP-PH1" secondAttribute="trailing" constant="20" id="Be0-D5-VDo"/>
                 <constraint firstItem="oJZ-mP-PH1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Dpb-4v-1Cu"/>
-                <constraint firstItem="oJZ-mP-PH1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="GoA-jh-7EO"/>
+                <constraint firstItem="oJZ-mP-PH1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="GoA-jh-7EO"/>
                 <constraint firstAttribute="bottom" secondItem="oJZ-mP-PH1" secondAttribute="bottom" id="weK-5w-Vek"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="141" y="112"/>
         </view>
     </objects>
 </document>
