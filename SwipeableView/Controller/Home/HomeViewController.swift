@@ -43,6 +43,9 @@ class HomeViewController: UIViewController {
 
     // Add swipeable content
     stackView.addArrangedSubview(setSwipeableContentView())
+
+    // Add article content
+    stackView.addArrangedSubview(setArticleContentView())
   }
 
   private func setSwipeableContentView() -> UIView {
@@ -65,6 +68,10 @@ class HomeViewController: UIViewController {
     DispatchQueue.main.async {[weak self] in
       self?.swipeableHeightConstraint.constant = estimatedHeight
     }
+  }
+
+  private func setArticleContentView() -> UIView {
+    return ArticleContentView(frame: .zero)
   }
 
   private func addChild() {
