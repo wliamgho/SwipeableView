@@ -1,7 +1,8 @@
 # SwipeableView
 ![swipeableview](https://user-images.githubusercontent.com/25744906/80863067-cae84900-8ca3-11ea-9dfb-2e0450b4e0aa.gif)
 
-SwipeableView is a customized PageView that has beed modified.
+## Description
+SwipeableView is a customized PageView that has beed modified. Besides that, in this project already support some views and collections layout.
 
 ## Structures:
 - `Controller` - contains of application logic (UIViewController).
