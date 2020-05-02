@@ -7,8 +7,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ArticleContentView" customModule="SwipeableView" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ArticleListView" customModule="SwipeableView" customModuleProvider="target">
             <connections>
+                <outlet property="articleCollectionListView" destination="BZh-V1-p55" id="Gd6-4R-raw"/>
                 <outlet property="categoryCollectionView" destination="hxc-1j-mhK" id="GRb-fS-y53"/>
                 <outlet property="contentView" destination="i5M-Pr-FkT" id="K03-OP-m5Z"/>
             </connections>
@@ -44,16 +45,30 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="BZh-V1-p55" customClass="ArticleCollectionListView" customModule="SwipeableView" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="112" width="375" height="555"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="x39-32-1by">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="BZh-V1-p55" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="EBM-ga-OAx"/>
                 <constraint firstItem="WaX-b9-bpr" firstAttribute="top" secondItem="Nny-rP-WKv" secondAttribute="bottom" constant="20" id="FvG-Cd-iaQ"/>
                 <constraint firstItem="hxc-1j-mhK" firstAttribute="top" secondItem="WaX-b9-bpr" secondAttribute="bottom" constant="20" id="J51-xp-Pb9"/>
                 <constraint firstAttribute="trailing" secondItem="WaX-b9-bpr" secondAttribute="trailing" constant="20" id="MGg-Yq-8GN"/>
                 <constraint firstItem="Nny-rP-WKv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="N1s-E4-fZu"/>
                 <constraint firstAttribute="trailing" secondItem="Nny-rP-WKv" secondAttribute="trailing" id="Rt3-rl-Vli"/>
                 <constraint firstItem="Nny-rP-WKv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="a8S-xD-q4g"/>
+                <constraint firstItem="BZh-V1-p55" firstAttribute="top" secondItem="hxc-1j-mhK" secondAttribute="bottom" id="bSg-bT-OTh"/>
+                <constraint firstAttribute="trailing" secondItem="BZh-V1-p55" secondAttribute="trailing" id="gQv-8b-k5Z"/>
+                <constraint firstAttribute="bottom" secondItem="BZh-V1-p55" secondAttribute="bottom" id="gsE-MM-ahF"/>
                 <constraint firstItem="WaX-b9-bpr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="n9A-43-oza"/>
                 <constraint firstAttribute="trailing" secondItem="hxc-1j-mhK" secondAttribute="trailing" id="x2t-KC-M1k"/>
                 <constraint firstItem="hxc-1j-mhK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zUg-Rw-wIf"/>

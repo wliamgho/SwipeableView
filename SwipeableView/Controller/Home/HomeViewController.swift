@@ -15,6 +15,7 @@ class HomeViewController: UIViewController {
   private var headerHomeView: HeaderHomeView!
   private var pageViewController: CustomPageViewController!
   private var swipeableContentView: SwipeableContentView!
+  private var articleListView: ArticleListView!
 
   private var swipeableHeightConstraint: NSLayoutConstraint!
 
@@ -45,7 +46,7 @@ class HomeViewController: UIViewController {
     stackView.addArrangedSubview(setSwipeableContentView())
 
     // Add article content
-    stackView.addArrangedSubview(setArticleContentView())
+    stackView.addArrangedSubview(setArticleListView())
   }
 
   private func setSwipeableContentView() -> UIView {
@@ -70,8 +71,11 @@ class HomeViewController: UIViewController {
     }
   }
 
-  private func setArticleContentView() -> UIView {
-    return ArticleContentView(frame: .zero)
+  private func setArticleListView() -> UIView {
+    let estimatedHeight: CGFloat = 900
+    articleListView = ArticleListView(frame: .zero)
+    articleListView.heightAnchor.constraint(equalToConstant: estimatedHeight).isActive = true
+    return articleListView
   }
 
   private func addChild() {

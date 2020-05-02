@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gTV-IL-0wX" customClass="ArticleItemCell" customModule="SwipeableView" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="162" height="240"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="162" height="240"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u3t-1S-1WN" customClass="CardView" customModule="SwipeableView" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="10" width="162" height="220"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vDl-Sh-ykf">
+                                <rect key="frame" x="0.0" y="0.0" width="162" height="140"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="vOP-Pv-G3J"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6a9-Em-yaw">
+                                <rect key="frame" x="8" y="154" width="146" height="58"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label asfasdfasdfasdfasdfasdfasdfasdfafasdfa" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5dm-eK-Oaf">
+                                        <rect key="frame" x="0.0" y="0.0" width="146" height="58"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="6a9-Em-yaw" secondAttribute="bottom" constant="8" id="61S-gx-zo8"/>
+                            <constraint firstItem="6a9-Em-yaw" firstAttribute="top" secondItem="vDl-Sh-ykf" secondAttribute="bottom" constant="14" id="Fez-2W-TX9"/>
+                            <constraint firstItem="vDl-Sh-ykf" firstAttribute="top" secondItem="u3t-1S-1WN" secondAttribute="top" id="Q3w-5c-5u9"/>
+                            <constraint firstAttribute="trailing" secondItem="vDl-Sh-ykf" secondAttribute="trailing" id="Qwl-lf-STJ"/>
+                            <constraint firstItem="vDl-Sh-ykf" firstAttribute="leading" secondItem="u3t-1S-1WN" secondAttribute="leading" id="RIF-jN-baR"/>
+                            <constraint firstItem="6a9-Em-yaw" firstAttribute="leading" secondItem="u3t-1S-1WN" secondAttribute="leading" constant="8" id="bRf-gJ-bKl"/>
+                            <constraint firstAttribute="trailing" secondItem="6a9-Em-yaw" secondAttribute="trailing" constant="8" id="v37-KJ-ewb"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                <real key="value" value="6"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="u3t-1S-1WN" secondAttribute="bottom" constant="10" id="Tpf-yO-ye7"/>
+                <constraint firstItem="u3t-1S-1WN" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="h9i-dJ-AW7"/>
+                <constraint firstAttribute="trailing" secondItem="u3t-1S-1WN" secondAttribute="trailing" id="oFX-3d-4SW"/>
+                <constraint firstItem="u3t-1S-1WN" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="rmi-XL-a7O"/>
+            </constraints>
+            <connections>
+                <outlet property="cardView" destination="u3t-1S-1WN" id="Jix-6r-hBi"/>
+                <outlet property="imageView" destination="vDl-Sh-ykf" id="El6-gF-Sou"/>
+                <outlet property="titleLabel" destination="5dm-eK-Oaf" id="2hl-df-Beg"/>
+            </connections>
+            <point key="canvasLocation" x="98.550724637681171" y="122.54464285714285"/>
+        </collectionViewCell>
+    </objects>
+</document>

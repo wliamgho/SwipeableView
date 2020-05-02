@@ -9,6 +9,8 @@
 import UIKit
 
 class ArticleCategoryView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+  private var selectedIndex: Int = 0
+
   var data = [String]() {
     didSet {
       self.reloadData()
@@ -37,11 +39,18 @@ class ArticleCategoryView: UICollectionView, UICollectionViewDataSource, UIColle
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return data.count
   }
-  
+
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryViewCell.reuseIdentifier(), for: indexPath) as! CategoryViewCell
     cell.titleLabel.text = data[indexPath.row]
+    cell.isSelected = selectedIndex == indexPath.row ? true : false
     return cell
+  }
+
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    selectedIndex = indexPath.row
+
+    self.reloadData()
   }
 
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

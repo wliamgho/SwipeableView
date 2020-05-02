@@ -12,6 +12,13 @@ class CategoryViewCell: UICollectionViewCell {
   @IBOutlet weak var containerView: UIView!
   @IBOutlet weak var titleLabel: UILabel!
 
+  override var isSelected: Bool {
+    didSet {
+      self.containerView.backgroundColor = isSelected ? .black : .clear
+      self.titleLabel.textColor = isSelected ? .white : .black
+    }
+  }
+
   static func size(text: String) -> CGSize {
     let label = UILabel(frame: .zero)
     label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
