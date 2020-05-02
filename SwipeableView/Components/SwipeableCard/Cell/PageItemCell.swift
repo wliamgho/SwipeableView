@@ -1,5 +1,5 @@
 //
-//  CardViewCell.swift
+//  PageItemCell.swift
 //  SwipeableView
 //
 //  Created by William on 26/04/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CardViewCell: UICollectionViewCell {
+class PageItemCell: UICollectionViewCell {
   @IBOutlet weak var cardView: CardView!
 
   static func reuseIdentifier() -> String {

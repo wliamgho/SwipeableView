@@ -18,26 +18,31 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cv5-46-cI3" customClass="CardView" customModule="SwipeableView" customModuleProvider="target">
-                        <rect key="frame" x="20" y="0.0" width="280" height="44"/>
+                        <rect key="frame" x="20" y="0.0" width="280" height="24"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F7s-WF-xUp">
-                                <rect key="frame" x="119" y="11.5" width="42" height="21"/>
+                                <rect key="frame" x="119" y="1.5" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="F7s-WF-xUp" firstAttribute="centerX" secondItem="Cv5-46-cI3" secondAttribute="centerX" id="YIV-Hy-FTT"/>
                             <constraint firstItem="F7s-WF-xUp" firstAttribute="centerY" secondItem="Cv5-46-cI3" secondAttribute="centerY" id="lhC-bC-Plr"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                <real key="value" value="16"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="Cv5-46-cI3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="22c-FP-Gd6"/>
-                    <constraint firstAttribute="bottom" secondItem="Cv5-46-cI3" secondAttribute="bottom" id="jUA-12-LF9"/>
+                    <constraint firstAttribute="bottom" secondItem="Cv5-46-cI3" secondAttribute="bottom" constant="20" id="jUA-12-LF9"/>
                     <constraint firstItem="Cv5-46-cI3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="uko-cb-sS8"/>
                     <constraint firstAttribute="trailing" secondItem="Cv5-46-cI3" secondAttribute="trailing" constant="20" id="za5-8H-0MW"/>
                 </constraints>

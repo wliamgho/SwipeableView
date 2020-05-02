@@ -8,9 +8,13 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
+protocol CustomPageViewDelegate: class {
+  func setCurrentPage(index: Int)
+}
 
 class CustomPageViewController: SwipeableCollectionController, UICollectionViewDelegateFlowLayout {
+  weak var delegate: CustomPageViewDelegate?
+
   var dataSource = [String]() {
     didSet {
       collectionView.reloadData()
@@ -28,13 +32,17 @@ class CustomPageViewController: SwipeableCollectionController, UICollectionViewD
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    self.collectionView.register(UINib(nibName: CardViewCell.reuseIdentifier(), bundle: nil),
-                                 forCellWithReuseIdentifier: CardViewCell.reuseIdentifier())
+    self.collectionView.register(UINib(nibName: PageItemCell.reuseIdentifier(), bundle: nil),
+                                 forCellWithReuseIdentifier: PageItemCell.reuseIdentifier())
 
   }
 
   override func calculateSectionInset() -> CGFloat {
     return 20
+  }
+
+  override func getIndexOfItem(index: Int) {
+    delegate?.setCurrentPage(index: index)
   }
 
   // MARK: UICollectionViewDataSource
@@ -43,7 +51,7 @@ class CustomPageViewController: SwipeableCollectionController, UICollectionViewD
   }
 
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CardViewCell.reuseIdentifier(), for: indexPath) as! CardViewCell
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PageItemCell.reuseIdentifier(), for: indexPath) as! PageItemCell
     cell.cardView.statusLabel.text = dataSource[indexPath.row]
     return cell
   }

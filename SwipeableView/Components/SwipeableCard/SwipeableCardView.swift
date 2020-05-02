@@ -35,8 +35,8 @@ class SwipeableCardView: UICollectionView, UICollectionViewDataSource, UICollect
   }
 
   private func configureLayout() {
-    self.register(UINib(nibName: CardViewCell.reuseIdentifier(), bundle: nil),
-                  forCellWithReuseIdentifier: CardViewCell.reuseIdentifier())
+    self.register(UINib(nibName: PageItemCell.reuseIdentifier(), bundle: nil),
+                  forCellWithReuseIdentifier: PageItemCell.reuseIdentifier())
     self.delegate = self
     self.dataSource = self
   }
@@ -52,13 +52,13 @@ class SwipeableCardView: UICollectionView, UICollectionViewDataSource, UICollect
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell: CardViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: CardViewCell.reuseIdentifier(), for: indexPath) as! CardViewCell
+    let cell: PageItemCell = collectionView.dequeueReusableCell(withReuseIdentifier: PageItemCell.reuseIdentifier(), for: indexPath) as! PageItemCell
     cell.cardView.statusLabel.text = data[indexPath.row]
     return cell
   }
 
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CardViewCell.getSize()
+    return PageItemCell.getSize()
   }
 
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -74,13 +74,13 @@ class SwipeableCardView: UICollectionView, UICollectionViewDataSource, UICollect
   }
 
   func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-    let pageWidth = (CardViewCell.getSize().width + spacing)
+    let pageWidth = (PageItemCell.getSize().width + spacing)
     prevIndex = (Int(floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth)) + 1)
   }
 
   func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
     // 1
-    let pageWidth = (CardViewCell.getSize().width + spacing)
+    let pageWidth = (PageItemCell.getSize().width + spacing)
     let maxPage = Int(ceil(scrollView.contentSize.width / pageWidth)) - 1
     var newPage = prevIndex
 

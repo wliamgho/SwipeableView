@@ -12,6 +12,14 @@ class CardView: UIView {
   @IBOutlet var contentView: UIView!
   @IBOutlet weak var statusLabel: UILabel!
 
+  var cornerRadius: CGFloat = 0
+
+  @IBInspectable var radius: CGFloat = 16 {
+    didSet {
+      self.cornerRadius = radius
+    }
+  }
+
   let containerView = UIView()
   private var shadowLayer: CAShapeLayer!
 
@@ -31,17 +39,17 @@ class CardView: UIView {
     super.layoutSubviews()
 
     if shadowLayer == nil {
-        shadowLayer = CAShapeLayer()
-        shadowLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: 16).cgPath
-        shadowLayer.fillColor = UIColor.white.cgColor
+      shadowLayer = CAShapeLayer()
+      shadowLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius).cgPath
+      shadowLayer.fillColor = UIColor.white.cgColor
 
-        shadowLayer.shadowColor = UIColor.darkGray.cgColor
-        shadowLayer.shadowPath = shadowLayer.path
-        shadowLayer.shadowOffset = CGSize(width: 0, height: 2.0)
-        shadowLayer.shadowOpacity = 0.8
-        shadowLayer.shadowRadius = 2
+      shadowLayer.shadowColor = UIColor.darkGray.cgColor
+      shadowLayer.shadowPath = shadowLayer.path
+      shadowLayer.shadowOffset = CGSize(width: 0, height: 2.0)
+      shadowLayer.shadowOpacity = 0.8
+      shadowLayer.shadowRadius = 2
 
-        layer.insertSublayer(shadowLayer, at: 0)
+      layer.insertSublayer(shadowLayer, at: 0)
     }
   }
 

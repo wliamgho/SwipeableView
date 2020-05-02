@@ -13,8 +13,12 @@ class HomeViewController: UIViewController {
   @IBOutlet weak var stackView: UIStackView!
 
   private var headerHomeView: HeaderHomeView!
-  private var swipeableController: CustomPageViewController!
+  private var pageViewController: CustomPageViewController!
   private var swipeableContentView: SwipeableContentView!
+
+  private var swipeableHeightConstraint: NSLayoutConstraint!
+
+  let mockData = [["ABC"], ["HIJ", "KLM"], ["NOP"], ["QRS", "TUV", "WXYZ", "DFG", "QWERTY", "ASDFA"]]
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
@@ -38,38 +42,55 @@ class HomeViewController: UIViewController {
     addChild()
 
     // Add swipeable content
-    if let swipeContent = setSwipeableContentView() as? UIView {
-      stackView.addArrangedSubview(swipeContent)
-    }
+    stackView.addArrangedSubview(setSwipeableContentView())
   }
 
-  private func setSwipeableContentView() -> UIView? {
+  private func setSwipeableContentView() -> UIView {
+    let estimatedHeight = CGFloat(mockData[0].count * 200)
     swipeableContentView = SwipeableContentView()
-    let data = ["ABC", "DFG", "HIJ", "KLM", "NOP", "QRS", "TUV", "WXYZ"]
-    let items: CGFloat = CGFloat(data.count)
-    let eachItemHeight: CGFloat = 200
-    let estimatedHeight: CGFloat = items * eachItemHeight
-    swipeableContentView = SwipeableContentView()
-    swipeableContentView.contentData = data
-    swipeableContentView.heightAnchor.constraint(equalToConstant: estimatedHeight).isActive = true
-    swipeableContentView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
+    swipeableContentView.translatesAutoresizingMaskIntoConstraints = false
+    swipeableHeightConstraint = NSLayoutConstraint(item: swipeableContentView,
+                                                    attribute: .height,
+                                                    relatedBy: .equal,
+                                                    toItem: nil,
+                                                    attribute: .notAnAttribute,
+                                                    multiplier: 1, constant: estimatedHeight)
+    swipeableContentView.addConstraint(swipeableHeightConstraint)
+    swipeableContentView.layoutIfNeeded()
     return swipeableContentView
   }
 
+  private func updateContentHeight(item: Int) {
+    let estimatedHeight = CGFloat(item * 200)
+    DispatchQueue.main.async {[weak self] in
+      self?.swipeableHeightConstraint.constant = estimatedHeight
+    }
+  }
+
   private func addChild() {
-    let swipeableContainer = UIView(frame: .zero)
-    swipeableContainer.heightAnchor.constraint(equalToConstant: 200).isActive = true
-    swipeableContainer.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
-    swipeableController = CustomPageViewController()
-    swipeableController.dataSource = ["Test 1", "Test 2", "Test 3", "Test 4", "Test 5"]
-    self.addChild(swipeableController)
+    let containerView = UIView(frame: .zero)
+    containerView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+    containerView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
+    pageViewController = CustomPageViewController()
+    pageViewController.delegate = self
+    pageViewController.dataSource = ["Test 1", "Test 2", "Test 3", "Test 4"]
+    self.addChild(pageViewController)
 
-    swipeableController.didMove(toParent: self)
-    swipeableController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-    swipeableController.view.frame = swipeableContainer.bounds
-    swipeableContainer.addSubview(swipeableController.view)
+    pageViewController.didMove(toParent: self)
+    pageViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    pageViewController.view.frame = containerView.bounds
+    containerView.addSubview(pageViewController.view)
 
-    swipeableContainer.backgroundColor = .clear
-    stackView.addArrangedSubview(swipeableContainer)
+    containerView.backgroundColor = .clear
+    stackView.addArrangedSubview(containerView)
+  }
+}
+
+extension HomeViewController: CustomPageViewDelegate {
+  func setCurrentPage(index: Int) {
+    let item = mockData[index]
+
+    self.updateContentHeight(item: item.count)
+    swipeableContentView.contentData = item
   }
 }

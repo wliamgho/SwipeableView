@@ -26,27 +26,15 @@
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B3D-pi-0pm">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="768"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7wJ-lr-rVj">
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nWO-Gv-C0b">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                                    <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="nWO-Gv-C0b">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                                        </stackView>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstItem="nWO-Gv-C0b" firstAttribute="top" secondItem="7wJ-lr-rVj" secondAttribute="top" id="3jg-M7-R05"/>
-                                        <constraint firstItem="nWO-Gv-C0b" firstAttribute="leading" secondItem="7wJ-lr-rVj" secondAttribute="leading" id="6HL-pq-pBg"/>
-                                        <constraint firstAttribute="trailing" secondItem="nWO-Gv-C0b" secondAttribute="trailing" id="cVV-ce-rl5"/>
-                                        <constraint firstAttribute="bottom" secondItem="nWO-Gv-C0b" secondAttribute="bottom" id="p9D-g1-Brx"/>
-                                    </constraints>
-                                </view>
+                                </stackView>
                             </subviews>
                             <constraints>
-                                <constraint firstAttribute="bottom" secondItem="7wJ-lr-rVj" secondAttribute="bottom" id="TEN-v8-77L"/>
-                                <constraint firstAttribute="trailing" secondItem="7wJ-lr-rVj" secondAttribute="trailing" id="fGT-FV-TsM"/>
-                                <constraint firstItem="7wJ-lr-rVj" firstAttribute="top" secondItem="B3D-pi-0pm" secondAttribute="top" id="pX6-pa-OPZ"/>
-                                <constraint firstItem="7wJ-lr-rVj" firstAttribute="leading" secondItem="B3D-pi-0pm" secondAttribute="leading" id="tcb-Sx-PB1"/>
+                                <constraint firstItem="nWO-Gv-C0b" firstAttribute="top" secondItem="B3D-pi-0pm" secondAttribute="top" id="HB0-oH-CmR"/>
+                                <constraint firstAttribute="trailing" secondItem="nWO-Gv-C0b" secondAttribute="trailing" id="LHt-2y-vrN"/>
+                                <constraint firstItem="nWO-Gv-C0b" firstAttribute="leading" secondItem="B3D-pi-0pm" secondAttribute="leading" id="Shp-b0-Kql"/>
+                                <constraint firstAttribute="bottom" secondItem="nWO-Gv-C0b" secondAttribute="bottom" constant="8" id="j1M-6i-BOP"/>
                             </constraints>
                         </scrollView>
                     </subviews>
@@ -63,10 +51,10 @@
             <constraints>
                 <constraint firstItem="Tyn-uE-PqD" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="6s2-9r-X1W"/>
                 <constraint firstItem="Tyn-uE-PqD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="EX6-gY-AIU"/>
-                <constraint firstItem="7wJ-lr-rVj" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" priority="250" id="gY0-9j-xIV"/>
+                <constraint firstItem="nWO-Gv-C0b" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="GEk-qh-ram"/>
+                <constraint firstItem="nWO-Gv-C0b" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" priority="250" id="b0n-ME-8m1"/>
                 <constraint firstAttribute="bottom" secondItem="Tyn-uE-PqD" secondAttribute="bottom" id="iSX-IN-nqK"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Tyn-uE-PqD" secondAttribute="trailing" id="rah-Fe-9Ss"/>
-                <constraint firstItem="7wJ-lr-rVj" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="x87-OD-EtG"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="139" y="130"/>

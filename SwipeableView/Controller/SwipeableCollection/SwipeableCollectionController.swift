@@ -10,9 +10,10 @@ import UIKit
 
 class SwipeableCollectionController: UICollectionViewController {
   private var indexOfCellBeforeDragging = 0
+  public var snapItemIndex = 0
 
   private var collectionViewFlowLayout: UICollectionViewFlowLayout {
-      return collectionViewLayout as! UICollectionViewFlowLayout
+    return collectionViewLayout as! UICollectionViewFlowLayout
   }
 
   override func viewDidLoad() {
@@ -22,14 +23,23 @@ class SwipeableCollectionController: UICollectionViewController {
     collectionView.backgroundColor = .clear
   }
 
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    getIndexOfItem(index: 0)
+  }
+
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
 
     configureCollectionViewLayoutItemSize()
   }
 
-  func calculateSectionInset() -> CGFloat { // should be overridden
+  public func calculateSectionInset() -> CGFloat {
     return 0
+  }
+
+  public func getIndexOfItem(index: Int) {
+    self.snapItemIndex = index + 1
   }
 
   private func configureCollectionViewLayoutItemSize() {
@@ -68,19 +78,21 @@ class SwipeableCollectionController: UICollectionViewController {
     let didUseSwipeToSkipCell = majorCellIsTheCellBeforeDragging && (hasEnoughVelocityToSlideToTheNextCell || hasEnoughVelocityToSlideToThePreviousCell)
 
     if didUseSwipeToSkipCell {
-        let snapToIndex = indexOfCellBeforeDragging + (hasEnoughVelocityToSlideToTheNextCell ? 1 : -1)
-        let toValue = collectionViewFlowLayout.itemSize.width * CGFloat(snapToIndex)
+      let snapToIndex = indexOfCellBeforeDragging + (hasEnoughVelocityToSlideToTheNextCell ? 1 : -1)
+      self.getIndexOfItem(index: snapToIndex) // Set item when snap
 
-        // Damping equal 1 => no oscillations => decay animation:
-        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: velocity.x, options: .allowUserInteraction, animations: {
-            scrollView.contentOffset = CGPoint(x: toValue, y: 0)
-            scrollView.layoutIfNeeded()
-        }, completion: nil)
+      let toValue = collectionViewFlowLayout.itemSize.width * CGFloat(snapToIndex)
+
+      // Damping equal 1 => no oscillations => decay animation:
+      UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: velocity.x, options: .allowUserInteraction, animations: {
+        scrollView.contentOffset = CGPoint(x: toValue, y: 0)
+        scrollView.layoutIfNeeded()
+      }, completion: nil)
 
     } else {
-        // This is a much better way to scroll to a cell:
-        let indexPath = IndexPath(row: indexOfMajorCell, section: 0)
-        collectionViewLayout.collectionView!.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+      // This is a much better way to scroll to a cell:
+      let indexPath = IndexPath(row: indexOfMajorCell, section: 0)
+      collectionViewLayout.collectionView!.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
   }
 }
