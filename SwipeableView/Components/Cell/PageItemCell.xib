@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gTV-IL-0wX" customClass="PageItemCell" customModule="SwipeableView" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tuy-O1-1fS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zwb-i7-ncy" customClass="CardView" customModule="SwipeableView" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="310" height="180"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zwb-i7-ncy" firstAttribute="top" secondItem="tuy-O1-1fS" secondAttribute="top" id="DGq-g9-bam"/>
+                            <constraint firstItem="zwb-i7-ncy" firstAttribute="leading" secondItem="tuy-O1-1fS" secondAttribute="leading" id="YHd-Lt-uvm"/>
+                            <constraint firstAttribute="trailing" secondItem="zwb-i7-ncy" secondAttribute="trailing" constant="10" id="cfD-mp-XZz"/>
+                            <constraint firstAttribute="bottom" secondItem="zwb-i7-ncy" secondAttribute="bottom" id="mSb-fL-3Oq"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="tuy-O1-1fS" secondAttribute="bottom" constant="20" id="DMQ-qn-EfD"/>
+                <constraint firstItem="tuy-O1-1fS" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="IaW-TJ-RiP"/>
+                <constraint firstItem="tuy-O1-1fS" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="RK3-lg-OYz"/>
+                <constraint firstAttribute="trailing" secondItem="tuy-O1-1fS" secondAttribute="trailing" id="vqn-cY-g6J"/>
+            </constraints>
+            <connections>
+                <outlet property="cardView" destination="zwb-i7-ncy" id="sSA-I3-iIp"/>
+            </connections>
+            <point key="canvasLocation" x="141" y="123"/>
+        </collectionViewCell>
+    </objects>
+</document>
